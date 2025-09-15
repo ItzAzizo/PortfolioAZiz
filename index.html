@@ -1,448 +1,427 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Portfolio — Aziz Benyamina | BTS SIO SISR</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portfolio — Aziz Benyamina | BTS SIO SISR</title>
 
-  <!-- Tailwind (layout rapide) + AOS (scroll animations) -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<!-- Tailwind CSS et AOS -->
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <!-- CSS perso -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- JS AOS -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- CSS perso -->
+<style>
+:root{
+  --bg-dark: rgba(5,8,15,0.6);
+  --glass: rgba(15,18,30,0.6);
+  --accent: #e0b3ff;
+  --muted: #9aa4b2;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; min-height:100vh;
+  background-color:#000; color:#fff;
+  font-family:Inter,system-ui,Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+.glass{
+  backdrop-filter:blur(8px);
+  background:linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.35));
+  border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.logo{
+  width:46px;height:46px;border-radius:10px;
+  background:linear-gradient(135deg,var(--accent),#9f8bff);
+  display:flex;align-items:center;justify-content:center;color:#081020;font-weight:700;
+  box-shadow:0 4px 18px rgba(224,179,255,0.12);
+  font-size:14px;
+}
+.section{padding:60px 0}
+.container{max-width:1100px;margin:0 auto}
+.title{font-size:48px;margin:0;color:#fff;text-align:center}
+.title .accent{color:var(--accent);text-shadow:0 0 10px rgba(224,179,255,0.25)}
+.lead{color:var(--muted);margin-top:12px}
+.card{
+  background:var(--glass); border-radius:12px;
+  padding:18px; border:1px solid transparent;
+  transition:all .25s ease;
+}
+.card:hover{ border-color:rgba(224,179,255,0.35); transform:translateY(-6px); box-shadow:0 12px 40px rgba(224,179,255,0.06) }
+.section-title{font-size:28px;margin-bottom:14px;color:var(--accent);letter-spacing:0.4px}
+.text-muted{color:var(--muted)}
+.link{color:var(--accent); text-decoration:underline; text-underline-offset:4px}
+.btn-solid{background:var(--accent); color:#081020;padding:10px 18px;border-radius:10px;font-weight:600}
+.btn-outline{border:2px solid var(--accent); color:var(--accent); padding:10px 18px;border-radius:10px; font-weight:600;background:transparent}
+.chip{display:inline-block;padding:6px 10px;border-radius:999px;background:#1f2430;color:#fff;font-size:13px}
+.icon-glow{transition:all .18s ease; filter:drop-shadow(0 0 0 rgba(0,0,0,0));}
+.icon-glow:hover{transform:translateY(-4px) scale(1.05); filter:drop-shadow(0 0 8px rgba(224,179,255,0.5))}
+.skill-row{display:block}
+.skill-bar{height:12px;border-radius:8px;background:#0f1724;overflow:hidden;margin-top:6px}
+.skill-fill{height:100%;background:linear-gradient(90deg,var(--accent),#cfa6ff);width:0;box-shadow:inset 0 -2px 6px rgba(0,0,0,0.3)}
+.accordion-btn{background:transparent;border-radius:8px;padding:8px 10px;border:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.accordion-content{display:none}
+.card img{max-width:100%;height:auto;display:block;border-radius:8px;}
+@media (max-width:900px){.title{font-size:36px}.container{padding:0 14px}}
+</style>
 </head>
 <body>
 
-  <!-- Canvas pour particules -->
-  <canvas id="cursor-canvas" class="fixed inset-0 pointer-events-none z-10"></canvas>
+<canvas id="cursor-canvas" class="fixed inset-0 pointer-events-none z-10"></canvas>
 
-  <!-- Navbar -->
-  <header class="fixed top-0 w-full z-50 glass">
-    <div class="container mx-auto flex items-center justify-between py-3 px-6">
-      <div class="flex items-center gap-3">
-        <div class="logo">AZ</div>
-        <div>
-          <div class="text-xs text-muted">Étudiant BTS SIO — SISR</div>
-          <div class="text-lg font-semibold">Aziz Benyamina</div>
-        </div>
+<!-- NAVBAR -->
+<header class="fixed top-0 w-full z-50 glass">
+  <div class="container mx-auto flex items-center justify-between py-3 px-6">
+    <div class="flex items-center gap-3">
+      <div class="logo">AZ</div>
+      <div>
+        <div class="text-xs text-muted">Étudiant BTS SIO — SISR</div>
+        <div class="text-lg font-semibold">Aziz Benyamina</div>
       </div>
-      <nav class="space-x-5 text-sm">
-        <a href="#accueil">Accueil</a>
-        <a href="#profil">Profil</a>
-        <a href="#formations">Formations</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#stages">Stages</a>
-        <a href="#projets">Projets</a>
-        <a href="#veille">Veille</a>
-        <a href="#contact">Contact</a>
-      </nav>
     </div>
-  </header>
+    <nav class="space-x-5 text-sm">
+      <a href="#accueil">Accueil</a>
+      <a href="#profil">Profil</a>
+      <a href="#formations">Formations</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#stages">Stages</a>
+      <a href="#projets">Projets</a>
+      <a href="#veille">Veille</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-  <main class="relative z-20">
-    <div class="pt-24"></div>
+<main class="relative z-20 pt-24">
 
-    <!-- ACCUEIL -->
-    <section id="accueil" class="min-h-screen flex items-center justify-center text-center px-6">
-      <div class="max-w-3xl" data-aos="fade-up">
-        <h1 class="title">Aziz <span class="accent">Benyamina</span></h1>
-        <p class="lead">Étudiant en <strong>BTS SIO — option SISR</strong> — Systèmes & Réseaux, Virtualisation, Cybersécurité.</p>
+<!-- ACCUEIL -->
+<section id="accueil" class="min-h-screen flex items-center justify-center text-center px-6">
+  <div class="max-w-3xl" data-aos="fade-up">
+    <h1 class="title">Aziz <span class="accent">Benyamina</span></h1>
+    <p class="lead">Étudiant en <strong>BTS SIO — option SISR</strong> — Systèmes & Réseaux, Virtualisation, Cybersécurité.</p>
+    <div class="mt-8 flex justify-center gap-4">
+      <a href="#profil" class="btn-outline">Découvrir mon profil</a>
+      <a href="#projets" class="btn-solid">Voir mes projets</a>
+    </div>
+  </div>
+</section>
 
-        <div class="mt-8 flex justify-center gap-4">
-          <a href="#profil" class="btn-outline">Découvrir mon profil</a>
-          <a href="#projets" class="btn-solid">Voir mes projets</a>
+<!-- PROFIL -->
+<section id="profil" class="section">
+  <div class="container mx-auto px-6">
+    <h2 class="section-title" data-aos="fade-right">Profil</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="card" data-aos="fade-up">
+        <h3 class="card-title">Présentation</h3>
+        <p>Étudiant en BTS SIO (SISR) — passion pour l’administration système, la sécurité et la virtualisation. Expérience : projets scolaires, stages en assistance et support, déploiement d’infrastructures.</p>
+        <div class="mt-4">
+          <h4 class="text-sm font-semibold mb-2">Compétences clés</h4>
+          <ul class="list-disc pl-5 text-sm">
+            <li>Administration Linux (Debian / Ubuntu)</li>
+            <li>Windows Server & Active Directory</li>
+            <li>Virtualisation (VirtualBox / Proxmox)</li>
+            <li>Réseaux (VLAN / DHCP / DNS / NAT) & pfSense</li>
+            <li>Scripting : Bash / PowerShell</li>
+          </ul>
         </div>
       </div>
-    </section>
-
-    <!-- PROFIL -->
-    <section id="profil" class="section">
-      <div class="container mx-auto px-6">
-        <h2 class="section-title" data-aos="fade-right">Profil</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="card" data-aos="fade-up">
-            <h3 class="card-title">Présentation</h3>
-            <p>Étudiant en BTS SIO (SISR) — passion pour l’administration système, la sécurité et la virtualisation. Expérience : projets scolaires, stages en assistance et support, déploiement d’infrastructures.</p>
-
-            <div class="mt-4">
-              <h4 class="text-sm font-semibold mb-2">Compétences clés</h4>
-              <ul class="list-disc pl-5 text-sm">
-                <li>Administration Linux (Debian / Ubuntu)</li>
-                <li>Windows Server & Active Directory</li>
-                <li>Virtualisation (VirtualBox / Proxmox)</li>
-                <li>Réseaux (VLAN / DHCP / DNS / NAT) & pfSense</li>
-                <li>Scripting : Bash / PowerShell</li>
-              </ul>
+      <div class="card col-span-2" data-aos="fade-up" data-aos-delay="100">
+        <h3 class="card-title">Compétences — détails & pourcentages</h3>
+        <div class="mt-3 grid md:grid-cols-2 gap-4">
+          <div>
+            <div class="skill-row">
+              <div class="flex justify-between"><span>Linux</span><span class="text-xs text-muted">90%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-percent="90%"></div></div>
+            </div>
+            <div class="skill-row mt-3">
+              <div class="flex justify-between"><span>Windows Server</span><span class="text-xs text-muted">85%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-percent="85%"></div></div>
+            </div>
+            <div class="skill-row mt-3">
+              <div class="flex justify-between"><span>Réseau & Sécurité</span><span class="text-xs text-muted">82%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-percent="82%"></div></div>
             </div>
           </div>
-
-          <div class="card col-span-2" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="card-title">Compétences — détails & pourcentages</h3>
-
-            <div class="mt-3 grid md:grid-cols-2 gap-4">
-              <div>
-                <div class="skill-row">
-                  <div class="flex justify-between"><span>Linux</span><span class="text-xs text-muted">90%</span></div>
-                  <div class="skill-bar"><div class="skill-fill" data-percent="90%"></div></div>
-                </div>
-
-                <div class="skill-row mt-3">
-                  <div class="flex justify-between"><span>Windows Server</span><span class="text-xs text-muted">85%</span></div>
-                  <div class="skill-bar"><div class="skill-fill" data-percent="85%"></div></div>
-                </div>
-
-                <div class="skill-row mt-3">
-                  <div class="flex justify-between"><span>Réseau & Sécurité</span><span class="text-xs text-muted">82%</span></div>
-                  <div class="skill-bar"><div class="skill-fill" data-percent="82%"></div></div>
-                </div>
-              </div>
-
-              <div>
-                <div class="skill-row">
-                  <div class="flex justify-between"><span>Administration Serveurs</span><span class="text-xs text-muted">80%</span></div>
-                  <div class="skill-bar"><div class="skill-fill" data-percent="80%"></div></div>
-                </div>
-
-                <div class="skill-row mt-3">
-                  <div class="flex justify-between"><span>Scripting (Bash / PS)</span><span class="text-xs text-muted">75%</span></div>
-                  <div class="skill-bar"><div class="skill-fill" data-percent="75%"></div></div>
-                </div>
-
-                <div class="skill-row mt-3">
-                  <div class="flex justify-between"><span>Virtualisation & Backup</span><span class="text-xs text-muted">78%</span></div>
-                  <div class="skill-bar"><div class="skill-fill" data-percent="78%"></div></div>
-                </div>
-              </div>
+          <div>
+            <div class="skill-row">
+              <div class="flex justify-between"><span>Administration Serveurs</span><span class="text-xs text-muted">80%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-percent="80%"></div></div>
             </div>
-
-            <div class="mt-6">
-              <h4 class="text-sm font-semibold mb-2">Outils & environnements</h4>
-              <div class="flex flex-wrap gap-2">
-                <span class="chip">Git / GitHub</span>
-                <span class="chip">Proxmox</span>
-                <span class="chip">VirtualBox</span>
-                <span class="chip">pfSense</span>
-                <span class="chip">GLPI</span>
-                <span class="chip">Packet Tracer</span>
-              </div>
+            <div class="skill-row mt-3">
+              <div class="flex justify-between"><span>Scripting (Bash / PS)</span><span class="text-xs text-muted">75%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-percent="75%"></div></div>
+            </div>
+            <div class="skill-row mt-3">
+              <div class="flex justify-between"><span>Virtualisation & Backup</span><span class="text-xs text-muted">78%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-percent="78%"></div></div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- FORMATIONS -->
-    <section id="formations" class="section">
-      <div class="container mx-auto px-6">
-        <h2 class="section-title" data-aos="fade-right">Formations</h2>
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="card" data-aos="fade-up">
-            <img src="images/school.png" alt="" class="w-12 h-12 icon-glow inline-block mr-2">
-            <strong>BTS Services Informatiques aux Organisations (SISR)</strong>
-            <div class="text-xs text-muted">Lycée public Turgot — Paris • 2024 – En cours</div>
-            <p class="mt-2 text-sm">Matières : administration réseau, virtualisation, sécurité, scripting, PRA.</p>
-          </div>
-
-          <div class="card" data-aos="fade-up" data-aos-delay="100">
-            <img src="images/school.png" alt="" class="w-12 h-12 icon-glow inline-block mr-2">
-            <strong>Baccalauréat Professionnel Systèmes Numériques</strong>
-            <div class="text-xs text-muted">Lycée Paul Bert — Maisons-Alfort • 2020 – 2023 • Mention Bien</div>
-            <p class="mt-2 text-sm">Bases réseau, maintenance matérielle, services et sécurité.</p>
+        <div class="mt-6">
+          <h4 class="text-sm font-semibold mb-2">Outils & environnements</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="chip">Git / GitHub</span>
+            <span class="chip">Proxmox</span>
+            <span class="chip">VirtualBox</span>
+            <span class="chip">pfSense</span>
+            <span class="chip">GLPI</span>
+            <span class="chip">Packet Tracer</span>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- CERTIFICATIONS -->
-    <section id="certifications" class="section">
-      <div class="container mx-auto px-6">
-        <h2 class="section-title" data-aos="fade-right">Certifications</h2>
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="card flex items-center gap-4" data-aos="fade-up">
-            <img src="images/cert-pix.png" class="w-12 h-12 icon-glow" alt="Pix">
-            <div>
-              <strong>Certificat Pix</strong><br><a href="pdf/certificat-pix.pdf" target="_blank" class="link">Voir PDF</a>
-            </div>
-          </div>
+<!-- FORMATIONS -->
+<section id="formations" class="section">
+  <div class="container mx-auto px-6">
+    <h2 class="section-title" data-aos="fade-right">Formations</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="card" data-aos="fade-up">
+        <img src="https://img.icons8.com/color/48/000000/school.png" class="w-12 h-12 icon-glow inline-block mr-2">
+        <strong>BTS Services Informatiques aux Organisations (SISR)</strong>
+        <div class="text-xs text-muted">Lycée public Turgot — Paris • 2024 – En cours</div>
+        <p class="mt-2 text-sm">Matières : administration réseau, virtualisation, sécurité, scripting, PRA.</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
+        <img src="https://img.icons8.com/color/48/000000/school.png" class="w-12 h-12 icon-glow inline-block mr-2">
+        <strong>Baccalauréat Professionnel Systèmes Numériques</strong>
+        <div class="text-xs text-muted">Lycée Paul Bert — Maisons-Alfort • 2020 – 2023 • Mention Bien</div>
+        <p class="mt-2 text-sm">Bases réseau, maintenance matérielle, services et sécurité.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <div class="card flex items-center gap-4" data-aos="fade-up" data-aos-delay="100">
-            <img src="images/cert-packet.png" class="w-12 h-12 icon-glow" alt="Packet">
-            <div>
-              <strong>Packet Tracer</strong><br><a href="pdf/packet-tracer.pdf" target="_blank" class="link">Voir PDF</a>
-            </div>
-          </div>
-
-          <div class="card flex items-center gap-4" data-aos="fade-up" data-aos-delay="200">
-            <img src="images/cert-cyber.png" class="w-12 h-12 icon-glow" alt="Cyber">
-            <div>
-              <strong>Introduction à la cybersécurité</strong><br><a href="pdf/cybersecurite.pdf" target="_blank" class="link">Voir PDF</a>
-            </div>
-          </div>
-
-          <div class="card flex items-center gap-4" data-aos="fade-up" data-aos-delay="300">
-            <img src="images/cert-reseaux.png" class="w-12 h-12 icon-glow" alt="Reseaux">
-            <div>
-              <strong>Notions de base sur les réseaux</strong><br><a href="pdf/reseaux.pdf" target="_blank" class="link">Voir PDF</a>
-            </div>
-          </div>
-
-          <div class="card flex items-center gap-4" data-aos="fade-up" data-aos-delay="400">
-            <img src="images/excel.png" class="w-12 h-12 icon-glow" alt="Excel">
-            <div>
-              <strong>Tableau de synthèse BTS SIO</strong><br><a href="pdf/BTS_SIO_Tableau_synthese.xlsx" target="_blank" class="link">Voir Excel</a>
-            </div>
-          </div>
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="section">
+  <div class="container mx-auto px-6">
+    <h2 class="section-title" data-aos="fade-right">Certifications</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="card flex items-center gap-4" data-aos="fade-up">
+        <img src="https://img.icons8.com/color/48/000000/pix.png" class="w-12 h-12 icon-glow">
+        <div>
+          <strong>Certificat Pix</strong><br>
+          <a href="pdf/certificat-pix.pdf" target="_blank" class="link">Voir PDF</a>
         </div>
       </div>
-    </section>
-        <!-- STAGES -->
+      <div class="card flex items-center gap-4" data-aos="fade-up" data-aos-delay="100">
+        <img src="https://img.icons8.com/color/48/000000/network.png" class="w-12 h-12 icon-glow">
+        <div>
+          <strong>Packet Tracer</strong><br>
+          <a href="pdf/packet-tracer.pdf" target="_blank" class="link">Voir PDF</a>
+        </div>
+      </div>
+      <div class="card flex items-center gap-4" data-aos="fade-up" data-aos-delay="200">
+        <img src="https://img.icons8.com/color/48/000000/cyber-security.png" class="w-12 h-12 icon-glow">
+        <div>
+          <strong>Introduction à la cybersécurité</strong><br>
+          <a href="pdf/cybersecurite.pdf" target="_blank" class="link">Voir PDF</a>
+        </div>
+      </div>
+      <div class="card flex items-center gap-4" data-aos="fade-up" data-aos-delay="300">
+        <img src="https://img.icons8.com/color/48/000000/networking.png" class="w-12 h-12 icon-glow">
+        <div>
+          <strong>Notions de base sur les réseaux</strong><br>
+          <a href="pdf/reseaux.pdf" target="_blank" class="link">Voir PDF</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- SECTION STAGES -->
     <section id="stages" class="section">
-      <div class="container mx-auto px-6">
-        <h2 class="section-title" data-aos="fade-right">Mises en Situation Professionnelle / Stages</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-          <!-- Stage 1 -->
-          <div class="card" data-aos="fade-up">
-            <img src="images/hopital-big.png" alt="Hôpital" class="mb-3 rounded-lg shadow-lg">
-            <div class="flex items-center gap-3">
-              <strong>Hôpital Européen de Paris — Aubervilliers</strong>
-              <div class="text-xs text-muted">01/07/2024 – 04/07/2025</div>
-            </div>
-            <ul class="mt-3 list-disc pl-5 text-sm">
-              <li>Assistance technique à distance via GLPI</li>
-              <li>Maintenance postes & serveurs</li>
-              <li>Sécurisation des services et PRA</li>
-              <li>Documentation technique complète</li>
-            </ul>
-            <p class="mt-3 text-sm"><a href="pdf/hopital-report.pdf" target="_blank" class="link">Voir le rapport PDF</a></p>
-          </div>
+      <div class="container">
+        <h2 class="title"><span class="accent">Stages</span></h2>
+        <p class="lead">Découvrez mes expériences en milieu professionnel, détaillées avec images et missions réalisées.</p>
 
-          <!-- Stage 2 -->
-          <div class="card" data-aos="fade-up" data-aos-delay="100">
-            <img src="images/shop-big.png" alt="B&L MultiMedia" class="mb-3 rounded-lg shadow-lg">
-            <div class="flex items-center gap-3">
-              <strong>B&L MultiMedia</strong>
-              <div class="text-xs text-muted">15/04/2023 – 30/06/2023</div>
-            </div>
-            <ul class="mt-3 list-disc pl-5 text-sm">
-              <li>Accueil & orientation clients</li>
-              <li>Conseil technique & démonstrations</li>
-              <li>Inventaire & maintenance matériel</li>
-            </ul>
-          </div>
+        <!-- Stage Hopital Européen -->
+        <div class="card" data-aos="fade-up">
+          <h3 class="section-title">Stage - Hôpital Européen de Paris</h3>
+          <img src="https://www.gvmnet.fr/media/2021/06/hopital-europeen.jpg" alt="Hôpital Européen" style="width:100%;border-radius:12px;margin-bottom:12px;">
+          <p>
+            Durant ce stage, j’ai travaillé sur l’infrastructure réseau, la gestion des serveurs Active Directory et la configuration
+            d’un système de messagerie sécurisé. J’ai participé au déploiement de solutions de cybersécurité pour protéger
+            les données sensibles des patients.
+          </p>
+          <ul>
+            <li>Configuration d’un serveur de messagerie (Postfix / Dovecot)</li>
+            <li>Gestion Active Directory (comptes, DNS, DHCP)</li>
+            <li>Mise en place d’un monitoring via GLPI</li>
+          </ul>
+        </div>
 
-          <!-- Stage 3 -->
-          <div class="card" data-aos="fade-up" data-aos-delay="200">
-            <img src="images/apple-shop-big.png" alt="Bestocaz Informatique" class="mb-3 rounded-lg shadow-lg">
-            <div class="flex items-center gap-3">
-              <strong>Bestocaz Informatique (Apple)</strong>
-              <div class="text-xs text-muted">01/02/2023 – 31/03/2023</div>
-            </div>
-            <ul class="mt-3 list-disc pl-5 text-sm">
-              <li>Support clientèle & diagnostic matériel</li>
-              <li>Conseils logiciels & retours SAV</li>
-            </ul>
-          </div>
+        <!-- Stage Lycée Turgot -->
+        <div class="card" data-aos="fade-up">
+          <h3 class="section-title">Stage - Lycée Turgot (Paris)</h3>
+          <img src="https://www.lycee-turgot.fr/wp-content/uploads/2020/06/lycee-turgot-1024x576.jpg" alt="Lycée Turgot" style="width:100%;border-radius:12px;margin-bottom:12px;">
+          <p>
+            Durant mon stage au lycée, j’ai assisté les techniciens dans la maintenance du parc informatique et dans la mise en place
+            de solutions réseau sécurisées pour l’ensemble des salles de cours.
+          </p>
+          <ul>
+            <li>Maintenance des postes et serveurs Windows/Linux</li>
+            <li>Segmentation réseau et filtrage avec pfSense</li>
+            <li>Assistance aux utilisateurs</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- PROJETS -->
+    <!-- SECTION PROJETS -->
     <section id="projets" class="section">
-      <div class="container mx-auto px-6">
-        <h2 class="section-title" data-aos="fade-right">Projets</h2>
-        <div class="grid md:grid-cols-2 gap-6">
-          <!-- Projet 1 -->
-          <article class="card p-4" data-aos="fade-up">
-            <h3 class="card-title">Déploiement Active Directory</h3>
-            <p class="text-sm text-muted">Gestion comptes & politiques via AD (Windows Server)</p>
-            <img src="images/ad-screenshot-big.png" alt="AD Screenshot" class="mt-3 rounded-lg shadow-lg">
-            <div class="mt-2">
-              <div class="accordion-btn" onclick="toggleProject('p-ad')">
-                <div class="text-sm font-medium">Voir les détails</div><div class="text-xs text-muted">▶</div>
-              </div>
-              <div id="p-ad" class="accordion-content mt-2">
-                <ul class="list-disc pl-5 text-sm">
-                  <li>Installation Windows Server, DNS, DHCP</li>
-                  <li>Création d’OU, GPO, stratégies de mot de passe</li>
-                  <li>Document technique & guide d’exploitation</li>
-                </ul>
-                <p class="mt-2 text-sm"><a href="pdf/projet-ad.pdf" target="_blank" class="link">Télécharger rapport (PDF)</a></p>
-              </div>
-            </div>
-          </article>
+      <div class="container">
+        <h2 class="title"><span class="accent">Projets</span></h2>
+        <p class="lead">Mes projets scolaires et personnels en BTS SIO (option SISR).</p>
 
-          <!-- Projet 2 -->
-          <article class="card p-4" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="card-title">Architecture réseau sécurisée</h3>
-            <p class="text-sm text-muted">VLAN, pfSense, firewall rules, PRA</p>
-            <img src="images/network-screenshot-big.png" alt="Network Screenshot" class="mt-3 rounded-lg shadow-lg">
-            <div class="mt-2">
-              <div class="accordion-btn" onclick="toggleProject('p-net')">
-                <div class="text-sm font-medium">Voir les détails</div><div class="text-xs text-muted">▶</div>
-              </div>
-              <div id="p-net" class="accordion-content mt-2">
-                <ul class="list-disc pl-5 text-sm">
-                  <li>Plan d’adressage IP & VLANs</li>
-                  <li>pfSense : règles, NAT, VPN</li>
-                  <li>Tests de résilience et PRA</li>
-                </ul>
-                <p class="mt-2 text-sm"><a href="pdf/projet-network.pdf" target="_blank" class="link">Télécharger notes (PDF)</a></p>
-              </div>
-            </div>
-          </article>
+        <div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;">
+          
+          <!-- Projet 1 : Serveur de messagerie -->
+          <div class="card" data-aos="zoom-in">
+            <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Mail Server" style="width:80px;height:80px;margin-bottom:10px;">
+            <h3>Serveur de Messagerie</h3>
+            <p>Installation et configuration d’un serveur mail (Postfix/Dovecot) intégré à Active Directory.</p>
+          </div>
 
-          <!-- Projet 3 -->
-          <article class="card p-4" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="card-title">Site web interne (WordPress)</h3>
-            <p class="text-sm text-muted">Hébergement sécurisé + automatisation sauvegardes</p>
-            <img src="images/web-screenshot-big.png" alt="Web Screenshot" class="mt-3 rounded-lg shadow-lg">
-            <div class="mt-2">
-              <div class="accordion-btn" onclick="toggleProject('p-web')">
-                <div class="text-sm font-medium">Voir les détails</div><div class="text-xs text-muted">▶</div>
-              </div>
-              <div id="p-web" class="accordion-content mt-2">
-                <ul class="list-disc pl-5 text-sm">
-                  <li>Apache / PHP / MySQL sur Debian</li>
-                  <li>Certificat TLS & configuration firewall</li>
-                  <li>Script sauvegarde automatique</li>
-                </ul>
-                <p class="mt-2 text-sm"><a href="pdf/projet-web.pdf" target="_blank" class="link">Télécharger</a></p>
-              </div>
-            </div>
-          </article>
+          <!-- Projet 2 : Site Web Clinique -->
+          <div class="card" data-aos="zoom-in">
+            <img src="https://cdn-icons-png.flaticon.com/512/841/841364.png" alt="Website" style="width:80px;height:80px;margin-bottom:10px;">
+            <h3>Site Web Clinique</h3>
+            <p>Développement et déploiement d’un site vitrine de la clinique sous Debian 12.</p>
+          </div>
 
-          <!-- Projet 4 -->
-          <article class="card p-4" data-aos="fade-up" data-aos-delay="300">
-            <h3 class="card-title">Kanboard — Plateforme collaborative</h3>
-            <p class="text-sm text-muted">Déploiement Docker + formation utilisateurs</p>
-            <img src="images/kanboard-screenshot-big.png" alt="Kanboard Screenshot" class="mt-3 rounded-lg shadow-lg">
-            <div class="mt-2">
-              <div class="accordion-btn" onclick="toggleProject('p-kan')">
-                <div class="text-sm font-medium">Voir les détails</div><div class="text-xs text-muted">▶</div>
-              </div>
-              <div id="p-kan" class="accordion-content mt-2">
-                <ul class="list-disc pl-5 text-sm">
-                  <li>Déploiement Docker / Kanboard</li>
-                  <li>Configuration des rôles & sauvegardes</li>
-                </ul>
-                <p class="mt-2 text-sm"><a href="pdf/projet-kanboard.pdf" target="_blank" class="link">Télécharger</a></p>
-              </div>
-            </div>
-          </article>
+          <!-- Projet 3 : GLPI -->
+          <div class="card" data-aos="zoom-in">
+            <img src="https://glpi-project.org/wp-content/uploads/2022/01/glpi-logo.png" alt="GLPI" style="width:120px;height:auto;margin-bottom:10px;">
+            <h3>Serveur GLPI</h3>
+            <p>Installation d’un serveur GLPI pour la gestion de parc et supervision.</p>
+          </div>
+
+          <!-- Projet 4 : pfSense -->
+          <div class="card" data-aos="zoom-in">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Pfsense_logo.png/800px-Pfsense_logo.png" alt="pfSense" style="width:120px;height:auto;margin-bottom:10px;">
+            <h3>Sécurité Réseau</h3>
+            <p>Mise en place de la segmentation réseau, NAT et filtrage Internet via pfSense.</p>
+          </div>
         </div>
       </div>
     </section>
+    <!-- SECTION COMPÉTENCES -->
+    <section id="competences" class="section">
+      <div class="container">
+        <h2 class="title"><span class="accent">Compétences</span></h2>
+        <p class="lead">Mes compétences techniques et outils utilisés en BTS SIO SISR.</p>
 
-    <!-- VEILLE -->
-    <section id="veille" class="section">
-      <div class="container mx-auto px-6">
-        <h2 class="section-title" data-aos="fade-right">Veille technologique</h2>
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="card" data-aos="fade-up">
-            <h3 class="card-title">Articles récents / Ressources</h3>
-            <ul class="list-disc pl-5 mt-3 text-sm">
-              <li><a href="#" class="link">Segmenter efficacement un réseau pour PME</a></li>
-              <li><a href="#" class="link">Comparatif Proxmox vs VMware — labo éducatif</a></li>
-              <li><a href="#" class="link">Stratégies de sauvegarde PRA pour structures sensibles</a></li>
-            </ul>
+        <div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;text-align:center;">
+          
+          <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/518/518713.png" alt="Linux" style="width:80px;height:80px;margin-bottom:10px;">
+            <h3>Linux</h3>
           </div>
-          <div class="card" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="card-title">Sujets suivis</h3>
-            <div class="mt-3">
-              <span class="chip">Sécurité réseau</span>
-              <span class="chip">Virtualisation</span>
-              <span class="chip">Backups / PRA</span>
-              <span class="chip">Mail services</span>
-              <span class="chip">Cloud basics</span>
-            </div>
+
+          <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/888/888857.png" alt="Windows" style="width:80px;height:80px;margin-bottom:10px;">
+            <h3>Windows Server</h3>
+          </div>
+
+          <div class="card">
+            <img src="https://cdn.worldvectorlogo.com/logos/cisco-2.svg" alt="Cisco" style="width:100px;height:auto;margin-bottom:10px;">
+            <h3>Réseau (Cisco, pfSense)</h3>
+          </div>
+
+          <div class="card">
+            <img src="https://glpi-project.org/wp-content/uploads/2022/01/glpi-logo.png" alt="GLPI" style="width:100px;height:auto;margin-bottom:10px;">
+            <h3>GLPI</h3>
+          </div>
+
+          <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/919/919841.png" alt="HTML CSS" style="width:80px;height:80px;margin-bottom:10px;">
+            <h3>Développement Web</h3>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <div class="container mx-auto px-6">
-        <h2 class="section-title" data-aos="fade-right">Contact</h2>
-        <div class="card p-6" data-aos="fade-up">
-          <p>📧 <a class="link" href="mailto:aziz.benyamina94@gmail.com">aziz.benyamina94@gmail.com</a></p>
-          <p class="mt-2">🔗 GitHub: <a class="link" href="https://github.com/ItzAzizo" target="_blank">ItzAzizo</a></p>
-          <p class="mt-2">🔗 LinkedIn: <a class="link" href="https://www.linkedin.com/in/aziz-benyamina-b49a0a278" target="_blank">Aziz Benyamina</a></p>
+    <!-- SECTION TABLEAU DE SYNTHÈSE -->
+    <section id="synthese" class="section">
+      <div class="container">
+        <h2 class="title"><span class="accent">Tableau de Synthèse</span></h2>
+        <p class="lead">Annexe 8-1 - Tableau de synthèse - Épreuve E5 (BTS SIO SISR)</p>
+        
+        <div class="card" style="text-align:center;">
+          <iframe src="docs/tableau_synthese.xlsx" style="width:100%;height:500px;border:none;background:#fff;border-radius:12px;"></iframe>
+          <br><br>
+          <a href="docs/tableau_synthese.xlsx" download class="btn-solid">Télécharger le Tableau (Excel)</a>
         </div>
       </div>
     </section>
 
-    <div class="pb-24"></div>
+    <!-- SECTION CV -->
+    <section id="cv" class="section">
+      <div class="container" style="text-align:center;">
+        <h2 class="title"><span class="accent">Mon CV</span></h2>
+        <p class="lead">Téléchargez mon CV au format PDF</p>
+        <a href="docs/cv.pdf" download class="btn-solid">📄 Télécharger mon CV</a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="section glass" style="padding:20px;text-align:center;">
+      <p class="text-muted">© 2025 - Portfolio Azi Benyamina Houari - BTS SIO SISR</p>
+    </footer>
   </main>
 
-  <!-- JS -->
-  <script src="script.js"></script>
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     // AOS init
-    AOS.init({duration:1200, once:true
-          // Animate skill bars
+    AOS.init({ duration: 1200, once: true });
+
+    // Animate skill bars
     document.addEventListener("DOMContentLoaded", () => {
       document.querySelectorAll('.skill-fill').forEach(el => {
-        const percent = el.getAttribute('data-percent') || '0%';
-        setTimeout(() => { el.style.width = percent; }, 300);
+        const percent = el.getAttribute('data-percent');
+        setTimeout(()=> el.style.width = percent, 300);
       });
     });
 
     // Cursor particles effect
     const canvas = document.getElementById('cursor-canvas');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    let particles = [];
-
-    window.addEventListener('mousemove', e => {
-      for (let i = 0; i < 2; i++) {
-        particles.push({
-          x: e.clientX,
-          y: e.clientY,
-          vx: (Math.random() - 0.5) * 2,
-          vy: (Math.random() - 0.5) * 2,
-          size: Math.random() * 4 + 2,
-          life: 60
-        });
-      }
-    });
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach((p, index) => {
-        p.x += p.vx;
-        p.y += p.vy;
-        p.life--;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(224,179,255,${p.life / 60})`;
-        ctx.fill();
-        if (p.life <= 0) particles.splice(index, 1);
-      });
-      requestAnimationFrame(animate);
-    }
-    animate();
-
-    // Handle window resize
-    window.addEventListener('resize', () => {
+    if(canvas){
+      const ctx = canvas.getContext('2d');
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-    });
-
-    // Accordion toggle for projects
-    function toggleProject(id) {
-      const el = document.getElementById(id);
-      if (el.style.display === "block") {
-        el.style.display = "none";
-      } else {
-        el.style.display = "block";
+      let particles = [];
+      window.addEventListener('mousemove', e => {
+        for(let i=0; i<2; i++){
+          particles.push({
+            x: e.clientX, y: e.clientY,
+            vx: (Math.random()-0.5)*2,
+            vy: (Math.random()-0.5)*2,
+            size: Math.random()*4 + 2,
+            life: 60
+          });
+        }
+      });
+      function animate(){
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        particles.forEach((p, index) => {
+          p.x += p.vx; p.y += p.vy; p.life--;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+          ctx.fillStyle = `rgba(203, 164, 247, ${p.life/60})`;
+          ctx.fill();
+          if(p.life <= 0) particles.splice(index,1);
+        });
+        requestAnimationFrame(animate);
       }
+      animate();
+      window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
     }
   </script>
 </body>
