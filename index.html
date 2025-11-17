@@ -1,448 +1,454 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Portfolio — Aziz Benyamina | BTS SIO SISR</title>
+<title>Portfolio — Aziz Benyamina-Houari | BTS SIO SISR</title>
 
-<!-- Tailwind CSS et AOS -->
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-<!-- CSS perso -->
-<style>
-:root{
-  --bg-dark: rgba(5,8,15,0.6);
-  --glass: rgba(15,18,30,0.6);
-  --accent: #e0b3ff;
-  --muted: #9aa4b2;
-}
-*{box-sizing:border-box;}
-body{
-  margin:0; min-height:100vh;
-  background-color:#000; color:#fff;
-  font-family:Inter,system-ui,Arial;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-}
-.glass{
-  backdrop-filter:blur(8px);
-  background:linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.35));
-  border-bottom:1px solid rgba(255,255,255,0.04);
-}
-.logo{
-  width:46px;height:46px;border-radius:10px;
-  background:linear-gradient(135deg,var(--accent),#9f8bff);
-  display:flex;align-items:center;justify-content:center;color:#081020;font-weight:700;
-  box-shadow:0 4px 18px rgba(224,179,255,0.12);
-  font-size:14px;
-}
-.section{padding:60px 0}
-.container{max-width:1100px;margin:0 auto}
-.title{font-size:48px;margin:0;color:#fff;text-align:center}
-.title .accent{color:var(--accent);text-shadow:0 0 10px rgba(224,179,255,0.25)}
-.lead{color:var(--muted);margin-top:12px}
-.card{
-  background:var(--glass); border-radius:12px;
-  padding:18px; border:1px solid transparent;
-  transition:all .25s ease;
-}
-.card:hover{ border-color:rgba(224,179,255,0.35); transform:translateY(-6px); box-shadow:0 12px 40px rgba(224,179,255,0.06) }
-.section-title{font-size:28px;margin-bottom:14px;color:var(--accent);letter-spacing:0.4px}
-.text-muted{color:var(--muted)}
-.link{color:var(--accent); text-decoration:underline; text-underline-offset:4px}
-.btn-solid{background:var(--accent); color:#081020;padding:10px 18px;border-radius:10px;font-weight:600}
-.btn-outline{border:2px solid var(--accent); color:var(--accent); padding:10px 18px;border-radius:10px; font-weight:600;background:transparent}
-.chip{display:inline-block;padding:6px 10px;border-radius:999px;background:#1f2430;color:#fff;font-size:13px}
-.icon-glow{transition:all .18s ease; filter:drop-shadow(0 0 0 rgba(0,0,0,0));}
-.icon-glow:hover{transform:translateY(-4px) scale(1.05); filter:drop-shadow(0 0 8px rgba(224,179,255,0.5))}
-.skill-row{display:block}
-.skill-bar{height:12px;border-radius:8px;background:#0f1724;overflow:hidden;margin-top:6px}
-.skill-fill{height:100%;background:linear-gradient(90deg,var(--accent),#cfa6ff);width:0;box-shadow:inset 0 -2px 6px rgba(0,0,0,0.3)}
-.accordion-btn{background:transparent;border-radius:8px;padding:8px 10px;border:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center;cursor:pointer}
-.accordion-content{display:none}
-.card img{max-width:100%;height:auto;display:block;border-radius:8px;}
-@media (max-width:900px){.title{font-size:36px}.container{padding:0 14px}}
-</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="antialiased text-gray-200 bg-dark-bg">
 
-<canvas id="cursor-canvas" class="fixed inset-0 pointer-events-none z-10"></canvas>
+<canvas id="cursor-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
 
-<!-- NAVBAR -->
-<header class="fixed top-0 w-full z-50 glass">
+<header class="fixed top-0 w-full z-50 glass-nav transition-all duration-300">
   <div class="container mx-auto flex items-center justify-between py-3 px-6">
-    <div class="flex items-center gap-3">
-      <div class="logo">AZ</div>
+    <a href="#" class="flex items-center gap-3 group">
+      <div class="logo group-hover:rotate-12 transition-transform">AZ</div>
       <div>
-        <div class="text-xs text-muted">Étudiant BTS SIO — SISR</div>
-        <div class="text-lg font-semibold">Aziz Benyamina</div>
+        <div class="text-[10px] tracking-widest uppercase text-muted">BTS SIO — SISR</div>
+        <div class="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-accent">Aziz Benyamina</div>
       </div>
-    </div>
-    <nav class="space-x-5 text-sm">
-      <a href="#accueil">Accueil</a>
-      <a href="#profil">Profil</a>
-      <a href="#formations">Formations</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#stages">Stages</a>
-      <a href="#projets">Projets</a>
-      <a href="#veille">Veille</a>
-      <a href="#contact">Contact</a>
+    </a>
+    
+    <nav class="hidden md:flex space-x-6 text-sm font-medium">
+      <a href="#accueil" class="nav-link">Accueil</a>
+      <a href="#profil" class="nav-link">Profil</a>
+      <a href="#e6" class="nav-link text-accent">E6 & Infra</a>
+      <a href="#projets" class="nav-link">Projets</a>
+      <a href="#certifications" class="nav-link">Certifs</a>
+      <a href="#stages" class="nav-link">Stage</a>
+      <a href="#veille" class="nav-link">Veille</a>
+      <a href="#contact" class="btn-sm-solid">Contact</a>
     </nav>
+
+    <button onclick="toggleMenu()" class="md:hidden text-white text-2xl focus:outline-none">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden flex flex-col items-center py-4 glass-nav absolute w-full border-t border-white/10">
+    <a href="#accueil" onclick="toggleMenu()" class="py-3 w-full text-center hover:bg-white/5">Accueil</a>
+    <a href="#profil" onclick="toggleMenu()" class="py-3 w-full text-center hover:bg-white/5">Profil</a>
+    <a href="#e6" onclick="toggleMenu()" class="py-3 w-full text-center hover:bg-white/5 text-accent">E6 & Infra</a>
+    <a href="#projets" onclick="toggleMenu()" class="py-3 w-full text-center hover:bg-white/5">Projets</a>
+    <a href="#certifications" onclick="toggleMenu()" class="py-3 w-full text-center hover:bg-white/5">Certifications</a>
+    <a href="#stages" onclick="toggleMenu()" class="py-3 w-full text-center hover:bg-white/5">Stages</a>
+    <a href="#contact" onclick="toggleMenu()" class="py-3 w-full text-center hover:bg-white/5">Contact</a>
   </div>
 </header>
 
-<main class="relative z-20 pt-24">
+<main class="relative z-10">
 
-<!-- ACCUEIL -->
-<section id="accueil" class="min-h-screen flex items-center justify-center text-center px-6">
-  <div class="max-w-3xl" data-aos="fade-up">
-    <h1 class="title">Aziz <span class="accent">Benyamina</span></h1>
-    <p class="lead">Étudiant en <strong>BTS SIO — option SISR</strong> — Systèmes & Réseaux, Virtualisation, Cybersécurité.</p>
-    <div class="mt-8 flex justify-center gap-4">
-      <a href="#profil" class="btn-outline">Découvrir mon profil</a>
-      <a href="#projets" class="btn-solid">Voir mes projets</a>
-    </div>
-  </div>
-</section>
+  <section id="accueil" class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20 relative overflow-hidden">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/20 rounded-full blur-[120px] -z-10"></div>
 
-<!-- PROFIL -->
-<section id="profil" class="section">
-  <div class="container mx-auto px-6">
-    <h2 class="section-title" data-aos="fade-right">Profil</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="card" data-aos="fade-up">
-        <h3 class="card-title">Présentation</h3>
-        <p>Étudiant en BTS SIO (SISR) — passion pour l’administration système, la sécurité et la virtualisation. Expérience : projets scolaires, stages en assistance et support, déploiement d’infrastructures.</p>
-        <div class="mt-4">
-          <h4 class="text-sm font-semibold mb-2">Compétences clés</h4>
-          <ul class="list-disc pl-5 text-sm">
-            <li>Administration Linux (Debian / Ubuntu)</li>
-            <li>Windows Server & Active Directory</li>
-            <li>Virtualisation (VirtualBox / Proxmox)</li>
-            <li>Réseaux (VLAN / DHCP / DNS / NAT) & pfSense</li>
-            <li>Scripting : Bash / PowerShell</li>
-          </ul>
-        </div>
+    <div class="max-w-4xl" data-aos="zoom-in">
+      <div class="inline-block px-3 py-1 mb-4 rounded-full border border-accent/30 bg-accent/10 text-accent text-xs font-semibold tracking-wider uppercase">
+        Portfolio 2025
       </div>
-      <div class="card col-span-2" data-aos="fade-up" data-aos-delay="100">
-        <h3 class="card-title">Compétences — détails & pourcentages</h3>
-        <div class="mt-3 grid md:grid-cols-2 gap-4">
-          <div>
-            <div class="skill-row">
-              <div class="flex justify-between"><span>Linux</span><span class="text-xs text-muted">90%</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-percent="90%"></div></div>
-            </div>
-            <div class="skill-row mt-3">
-              <div class="flex justify-between"><span>Windows Server</span><span class="text-xs text-muted">85%</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-percent="85%"></div></div>
-            </div>
-            <div class="skill-row mt-3">
-              <div class="flex justify-between"><span>Réseau & Sécurité</span><span class="text-xs text-muted">82%</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-percent="82%"></div></div>
-            </div>
-          </div>
-          <div>
-            <div class="skill-row">
-              <div class="flex justify-between"><span>Administration Serveurs</span><span class="text-xs text-muted">80%</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-percent="80%"></div></div>
-            </div>
-            <div class="skill-row mt-3">
-              <div class="flex justify-between"><span>Scripting (Bash / PS)</span><span class="text-xs text-muted">75%</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-percent="75%"></div></div>
-            </div>
-            <div class="skill-row mt-3">
-              <div class="flex justify-between"><span>Virtualisation & Backup</span><span class="text-xs text-muted">78%</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-percent="78%"></div></div>
-            </div>
-          </div>
-        </div>
-        <div class="mt-6">
-          <h4 class="text-sm font-semibold mb-2">Outils & environnements</h4>
-          <div class="flex flex-wrap gap-2">
-            <span class="chip">Git / GitHub</span>
-            <span class="chip">Proxmox</span>
-            <span class="chip">VirtualBox</span>
-            <span class="chip">pfSense</span>
-            <span class="chip">GLPI</span>
-            <span class="chip">Packet Tracer</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FORMATIONS -->
-<section id="formations" class="section">
-  <div class="container mx-auto px-6">
-    <h2 class="section-title" data-aos="fade-right">Formations</h2>
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class="card" data-aos="fade-up">
-        <img src="https://img.icons8.com/color/48/000000/school.png" class="w-12 h-12 icon-glow inline-block mr-2">
-        <strong>BTS Services Informatiques aux Organisations (SISR)</strong>
-        <div class="text-xs text-muted">Lycée public Turgot — Paris • 2024 – En cours</div>
-        <p class="mt-2 text-sm">Matières : administration réseau, virtualisation, sécurité, scripting, PRA.</p>
-      </div>
-      <div class="card" data-aos="fade-up" data-aos-delay="100">
-        <img src="https://img.icons8.com/color/48/000000/school.png" class="w-12 h-12 icon-glow inline-block mr-2">
-        <strong>Baccalauréat Professionnel Systèmes Numériques</strong>
-        <div class="text-xs text-muted">Lycée Paul Bert — Maisons-Alfort • 2020 – 2023 • Mention Bien</div>
-        <p class="mt-2 text-sm">Bases réseau, maintenance matérielle, services et sécurité.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CERTIFICATIONS -->
-<section id="certifications" class="section">
-  <div class="container mx-auto px-6">
-    <h2 class="section-title" data-aos="fade-right">Certifications</h2>
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class="card flex items-center gap-4" data-aos="fade-up">
-        <img src="https://img.icons8.com/color/48/000000/pix.png" class="w-12 h-12 icon-glow">
-        <div>
-          <strong>Certificat Pix</strong><br>
-          <a href="pdf/certificat-pix.pdf" target="_blank" class="link">Voir PDF</a>
-        </div>
-      </div>
-      <div class="card flex items-center gap-4" data-aos="fade-up" data-aos-delay="100">
-        <img src="https://img.icons8.com/color/48/000000/network.png" class="w-12 h-12 icon-glow">
-        <div>
-          <strong>Packet Tracer</strong><br>
-          <a href="pdf/packet-tracer.pdf" target="_blank" class="link">Voir PDF</a>
-        </div>
-      </div>
-      <div class="card flex items-center gap-4" data-aos="fade-up" data-aos-delay="200">
-        <img src="https://img.icons8.com/color/48/000000/cyber-security.png" class="w-12 h-12 icon-glow">
-        <div>
-          <strong>Introduction à la cybersécurité</strong><br>
-          <a href="pdf/cybersecurite.pdf" target="_blank" class="link">Voir PDF</a>
-        </div>
-      </div>
-      <div class="card flex items-center gap-4" data-aos="fade-up" data-aos-delay="300">
-        <img src="https://img.icons8.com/color/48/000000/networking.png" class="w-12 h-12 icon-glow">
-        <div>
-          <strong>Notions de base sur les réseaux</strong><br>
-          <a href="pdf/reseaux.pdf" target="_blank" class="link">Voir PDF</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <!-- SECTION STAGES -->
-    <section id="stages" class="section">
-      <div class="container">
-        <h2 class="title"><span class="accent">Stages</span></h2>
-        <p class="lead">Découvrez mes expériences en milieu professionnel, détaillées avec images et missions réalisées.</p>
-
-        <!-- Stage Hopital Européen -->
-        <<!-- SECTION STAGES -->
-<section id="stages" class="section">
-  <div class="container">
-    <h2 class="title"><span class="accent">Mes Stages</span></h2>
-
-    <!-- Stage Hôpital -->
-    <div class="card" style="margin-bottom:30px;">
-      <h3 class="section-title">Stage à l'Hôpital Européen de Paris - GVM Care & Research</h3>
-      <img src="images/hopital.png" alt="Stage Hopital" style="width:100%;border-radius:12px;margin:20px 0;">
-      <p>
-        Durant ce stage, j’ai participé à l’administration du réseau, la gestion des utilisateurs
-        sous Active Directory, la maintenance des postes et serveurs ainsi que le déploiement
-        d’outils de gestion comme GLPI.
+      <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+        Aziz <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-500">Benyamina</span>
+      </h1>
+      <p class="text-xl text-muted mb-8 max-w-2xl mx-auto leading-relaxed">
+        Futur Administrateur Systèmes & Réseaux. Étudiant passionné en <strong>BTS SIO SISR</strong> au Lycée Turgot.
+        <br><span class="text-sm mt-2 block text-gray-400">Virtualisation • Cybersécurité • Active Directory</span>
       </p>
-      <br>
-      <iframe src="pdf/rapport_stage_hopital.pdf" style="width:100%;height:600px;border:none;border-radius:12px;background:#fff;"></iframe>
-      <br><br>
-      <a href="pdf/rapport_stage_hopital.pdf" download class="btn-solid">📄 Télécharger le Rapport de Stage</a>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#e6" class="btn-glow">
+          <i class="fas fa-network-wired mr-2"></i> Mes Situations E6
+        </a>
+        <a href="docs/cv.pdf" target="_blank" class="btn-outline">
+          <i class="fas fa-download mr-2"></i> Télécharger mon CV
+        </a>
+      </div>
     </div>
+    
+    <a href="#profil" class="absolute bottom-10 animate-bounce text-muted hover:text-white transition-colors">
+      <i class="fas fa-chevron-down text-2xl"></i>
+    </a>
+  </section>
 
-    <!-- Stage Lycée Turgot -->
-    <div class="card" style="margin-bottom:30px;">
-      <h3 class="section-title">Stage au Lycée Turgot</h3>
-      <img src="images/lycee_turgot.jpg" alt="Stage Lycée" style="width:100%;border-radius:12px;margin:20px 0;">
-      <p>
-        Mise en place d’un serveur de fichiers, gestion des comptes utilisateurs,
-        surveillance réseau et configuration de machines virtuelles pour les TP SISR.
-      </p>
+  <section id="profil" class="py-24 relative">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row gap-12">
+        <div class="md:w-1/3" data-aos="fade-right">
+          <div class="glass-card h-full p-8 relative overflow-hidden group">
+            <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+              <i class="fas fa-user-astronaut text-8xl"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-white mb-4">À propos</h2>
+            <p class="text-gray-400 leading-relaxed mb-6">
+              Passionné par l'informatique depuis mon Bac Pro SN, je me spécialise aujourd'hui dans l'architecture réseau et la cybersécurité. Mon objectif est de concevoir des infrastructures robustes et sécurisées.
+            </p>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3 text-sm">
+                <i class="fas fa-graduation-cap text-accent w-6"></i>
+                <span>BTS SIO SISR (Lycée Turgot)</span>
+              </div>
+              <div class="flex items-center gap-3 text-sm">
+                <i class="fas fa-map-marker-alt text-accent w-6"></i>
+                <span>Paris, France</span>
+              </div>
+              <div class="flex items-center gap-3 text-sm">
+                <i class="fas fa-envelope text-accent w-6"></i>
+                <span>aziz.benyamina@exemple.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="md:w-2/3" data-aos="fade-left">
+          <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+            <span class="text-accent">#</span> Compétences Techniques
+          </h2>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="space-y-6">
+              <div class="skill-group">
+                <div class="flex justify-between mb-1"><span class="font-medium">Windows Server (AD/DNS/DHCP)</span> <span class="text-accent">85%</span></div>
+                <div class="h-2 bg-gray-700 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-accent to-purple-600 w-[85%]"></div></div>
+              </div>
+              <div class="skill-group">
+                <div class="flex justify-between mb-1"><span class="font-medium">Linux (Debian/Ubuntu)</span> <span class="text-accent">90%</span></div>
+                <div class="h-2 bg-gray-700 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-accent to-purple-600 w-[90%]"></div></div>
+              </div>
+              <div class="skill-group">
+                <div class="flex justify-between mb-1"><span class="font-medium">Virtualisation (Proxmox)</span> <span class="text-accent">80%</span></div>
+                <div class="h-2 bg-gray-700 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-accent to-purple-600 w-[80%]"></div></div>
+              </div>
+            </div>
+            <div class="space-y-6">
+              <div class="skill-group">
+                <div class="flex justify-between mb-1"><span class="font-medium">Réseau & Sécurité (pfSense)</span> <span class="text-accent">82%</span></div>
+                <div class="h-2 bg-gray-700 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-accent to-purple-600 w-[82%]"></div></div>
+              </div>
+              <div class="skill-group">
+                <div class="flex justify-between mb-1"><span class="font-medium">Gestion de Parc (GLPI)</span> <span class="text-accent">88%</span></div>
+                <div class="h-2 bg-gray-700 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-accent to-purple-600 w-[88%]"></div></div>
+              </div>
+              <div class="skill-group">
+                <div class="flex justify-between mb-1"><span class="font-medium">Scripting (Bash/PowerShell)</span> <span class="text-accent">70%</span></div>
+                <div class="h-2 bg-gray-700 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-accent to-purple-600 w-[70%]"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-  </div>
-</section>
+  <section id="e6" class="py-24 bg-black/20">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-4xl font-bold mb-4">Situations Professionnelles <span class="text-accent">E6</span></h2>
+        <p class="text-muted">Support de l'épreuve "Administration des systèmes et des réseaux".</p>
+      </div>
 
-
-        <!-- Stage Lycée Turgot -->
-        <div class="card" data-aos="fade-up">
-          <h3 class="section-title">Stage - Lycée Turgot (Paris)</h3>
-          <img src="https://www.lycee-turgot.fr/wp-content/uploads/2020/06/lycee-turgot-1024x576.jpg" alt="Lycée Turgot" style="width:100%;border-radius:12px;margin-bottom:12px;">
-          <p>
-            Durant mon stage au lycée, j’ai assisté les techniciens dans la maintenance du parc informatique et dans la mise en place
-            de solutions réseau sécurisées pour l’ensemble des salles de cours.
-          </p>
-          <ul>
-            <li>Maintenance des postes et serveurs Windows/Linux</li>
-            <li>Segmentation réseau et filtrage avec pfSense</li>
-            <li>Assistance aux utilisateurs</li>
-          </ul>
+      <div class="glass-card p-1 mb-16 border-accent/30 mx-auto max-w-5xl" data-aos="zoom-in">
+        <div class="bg-gray-900/80 rounded-lg p-4 relative min-h-[300px] flex items-center justify-center group">
+            <img src="images/infra_sisr.png" alt="Schéma Infrastructure" class="max-h-[500px] w-auto rounded shadow-2xl">
+            
+            <div class="absolute inset-0 flex flex-col items-center justify-center bg-gray-900 text-center p-6 z-0 opacity-100 group-hover:opacity-0 transition-opacity" style="display:none;">
+                 <i class="fas fa-project-diagram text-5xl text-accent mb-4"></i>
+                 <h3 class="text-xl font-bold">Infrastructure SISR</h3>
+                 <p class="text-sm text-gray-400">Survolez pour voir les détails</p>
+            </div>
+        </div>
+        <div class="p-4 text-center border-t border-white/5">
+            <p class="text-sm text-accent font-mono"><i class="fas fa-info-circle mr-2"></i>Infrastructure hybride : Proxmox VE + VLANs + pfSense + Windows Server AD</p>
         </div>
       </div>
-    </section>
 
-    <!-- SECTION PROJETS -->
-    <section id="projets" class="section">
-      <div class="container">
-        <h2 class="title"><span class="accent">Projets</span></h2>
-        <p class="lead">Mes projets scolaires et personnels en BTS SIO (option SISR).</p>
+      <div class="grid lg:grid-cols-2 gap-8">
+        <div class="glass-card p-8 hover:border-accent/50 transition-colors" data-aos="fade-right">
+            <div class="flex items-start justify-between mb-6">
+                <div class="bg-blue-500/20 p-3 rounded-lg text-blue-400"><i class="fab fa-windows text-3xl"></i></div>
+                <span class="text-xs font-bold border border-blue-500/30 text-blue-400 px-2 py-1 rounded">Réalisation 1</span>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">Active Directory & DNS</h3>
+            <p class="text-gray-400 text-sm mb-6">
+                Déploiement d'une infrastructure de gestion des identités centralisée sous Windows Server 2022.
+            </p>
+            <ul class="space-y-2 text-sm text-gray-300 mb-6">
+                <li><i class="fas fa-check text-accent mr-2"></i>Installation Forêt AD DS</li>
+                <li><i class="fas fa-check text-accent mr-2"></i>Configuration DNS & DHCP</li>
+                <li><i class="fas fa-check text-accent mr-2"></i>Jonction Client Windows 11</li>
+            </ul>
+            <a href="docs/Fiche_E6_Windows.pdf" class="btn-outline w-full text-center block">Voir la Fiche E6 (PDF)</a>
+        </div>
 
-        <div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;">
-          
-          <!-- Projet 1 : Serveur de messagerie -->
-          <div class="card" data-aos="zoom-in">
-            <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Mail Server" style="width:80px;height:80px;margin-bottom:10px;">
-            <h3>Serveur de Messagerie</h3>
-            <p>Installation et configuration d’un serveur mail (Postfix/Dovecot) intégré à Active Directory.</p>
-          </div>
-
-          <!-- Projet 2 : Site Web Clinique -->
-          <div class="card" data-aos="zoom-in">
-            <img src="https://cdn-icons-png.flaticon.com/512/841/841364.png" alt="Website" style="width:80px;height:80px;margin-bottom:10px;">
-            <h3>Site Web Clinique</h3>
-            <p>Développement et déploiement d’un site vitrine de la clinique sous Debian 12.</p>
-          </div>
-
-          <!-- Projet 3 : GLPI -->
-          <div class="card" data-aos="zoom-in">
-            <img src="https://glpi-project.org/wp-content/uploads/2022/01/glpi-logo.png" alt="GLPI" style="width:120px;height:auto;margin-bottom:10px;">
-            <h3>Serveur GLPI</h3>
-            <p>Installation d’un serveur GLPI pour la gestion de parc et supervision.</p>
-          </div>
-
-          <!-- Projet 4 : pfSense -->
-          <div class="card" data-aos="zoom-in">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Pfsense_logo.png/800px-Pfsense_logo.png" alt="pfSense" style="width:120px;height:auto;margin-bottom:10px;">
-            <h3>Sécurité Réseau</h3>
-            <p>Mise en place de la segmentation réseau, NAT et filtrage Internet via pfSense.</p>
-          </div>
+        <div class="glass-card p-8 hover:border-accent/50 transition-colors" data-aos="fade-left">
+            <div class="flex items-start justify-between mb-6">
+                <div class="bg-orange-500/20 p-3 rounded-lg text-orange-400"><i class="fas fa-shield-alt text-3xl"></i></div>
+                <span class="text-xs font-bold border border-orange-500/30 text-orange-400 px-2 py-1 rounded">Réalisation 2</span>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">Sécurité pfSense</h3>
+            <p class="text-gray-400 text-sm mb-6">
+                Sécurisation du réseau local et gestion des flux entrants/sortants via un pare-feu dédié.
+            </p>
+            <ul class="space-y-2 text-sm text-gray-300 mb-6">
+                <li><i class="fas fa-check text-accent mr-2"></i>Segmentation Réseau</li>
+                <li><i class="fas fa-check text-accent mr-2"></i>Filtrage & NAT</li>
+                <li><i class="fas fa-check text-accent mr-2"></i>Règles ICMP & Web</li>
+            </ul>
+            <a href="docs/Fiche_E6_pfSense.pdf" class="btn-outline w-full text-center block">Voir la Fiche E6 (PDF)</a>
         </div>
       </div>
-    </section>
-    <!-- SECTION COMPÉTENCES -->
-    <section id="competences" class="section">
-      <div class="container">
-        <h2 class="title"><span class="accent">Compétences</span></h2>
-        <p class="lead">Mes compétences techniques et outils utilisés en BTS SIO SISR.</p>
+    </div>
+  </section>
 
-        <div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;text-align:center;">
-          
-          <div class="card">
-            <img src="https://cdn-icons-png.flaticon.com/512/518/518713.png" alt="Linux" style="width:80px;height:80px;margin-bottom:10px;">
-            <h3>Linux</h3>
+  <section id="projets" class="py-24">
+    <div class="container mx-auto px-6">
+      
+      <div class="mb-20">
+          <h2 class="text-3xl font-bold mb-10 border-l-4 border-accent pl-4" data-aos="fade-right">Autres Projets Académiques</h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="glass-card p-6 text-center flex flex-col h-full hover:-translate-y-2 transition-transform duration-300" data-aos="zoom-in">
+                <div class="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4 text-purple-400">
+                    <i class="fas fa-envelope text-2xl"></i>
+                </div>
+                <h3 class="font-bold mb-2">Serveur Mail</h3>
+                <p class="text-xs text-gray-400 flex-grow mb-4">Déploiement Postfix / Dovecot sous Debian avec authentification LDAP/AD.</p>
+                <a href="docs/projet_messagerie.pdf" class="text-xs btn-sm-solid w-full block py-2 mt-auto"><i class="fas fa-file-pdf mr-1"></i> Dossier PDF</a>
+            </div>
+            <div class="glass-card p-6 text-center flex flex-col h-full hover:-translate-y-2 transition-transform duration-300" data-aos="zoom-in" data-aos-delay="100">
+                <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4 text-green-400">
+                    <i class="fas fa-globe text-2xl"></i>
+                </div>
+                <h3 class="font-bold mb-2">Site Web Clinique</h3>
+                <p class="text-xs text-gray-400 flex-grow mb-4">Hébergement d'un site vitrine sous Apache/Debian 12 avec base SQL.</p>
+                <a href="docs/projet_clinique.pdf" class="text-xs btn-sm-solid w-full block py-2 mt-auto"><i class="fas fa-file-pdf mr-1"></i> Dossier PDF</a>
+            </div>
+            <div class="glass-card p-6 text-center flex flex-col h-full hover:-translate-y-2 transition-transform duration-300" data-aos="zoom-in" data-aos-delay="200">
+                <div class="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-400">
+                    <i class="fas fa-server text-2xl"></i>
+                </div>
+                <h3 class="font-bold mb-2">Supervision GLPI</h3>
+                <p class="text-xs text-gray-400 flex-grow mb-4">Mise en place de GLPI pour la gestion de parc et suivi des tickets incidents.</p>
+                <a href="docs/projet_glpi.pdf" class="text-xs btn-sm-solid w-full block py-2 mt-auto"><i class="fas fa-file-pdf mr-1"></i> Dossier PDF</a>
+            </div>
+            <div class="glass-card p-6 text-center flex flex-col h-full hover:-translate-y-2 transition-transform duration-300" data-aos="zoom-in" data-aos-delay="300">
+                <div class="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4 text-red-400">
+                    <i class="fas fa-lock text-2xl"></i>
+                </div>
+                <h3 class="font-bold mb-2">Sécurité Mairie</h3>
+                <p class="text-xs text-gray-400 flex-grow mb-4">Segmentation réseau VLAN, configuration switchs et sécurisation d'accès.</p>
+                <a href="docs/projet_mairie.pdf" class="text-xs btn-sm-solid w-full block py-2 mt-auto"><i class="fas fa-file-pdf mr-1"></i> Dossier PDF</a>
+            </div>
           </div>
+      </div>
 
-          <div class="card">
-            <img src="https://cdn-icons-png.flaticon.com/512/888/888857.png" alt="Windows" style="width:80px;height:80px;margin-bottom:10px;">
-            <h3>Windows Server</h3>
-          </div>
-
-          <div class="card">
-            <img src="https://cdn.worldvectorlogo.com/logos/cisco-2.svg" alt="Cisco" style="width:100px;height:auto;margin-bottom:10px;">
-            <h3>Réseau (Cisco, pfSense)</h3>
-          </div>
-
-          <div class="card">
-            <img src="https://glpi-project.org/wp-content/uploads/2022/01/glpi-logo.png" alt="GLPI" style="width:100px;height:auto;margin-bottom:10px;">
-            <h3>GLPI</h3>
-          </div>
-
-          <div class="card">
-            <img src="https://cdn-icons-png.flaticon.com/512/919/919841.png" alt="HTML CSS" style="width:80px;height:80px;margin-bottom:10px;">
-            <h3>Développement Web</h3>
-          </div>
+      <div id="certifications">
+        <h2 class="text-3xl font-bold mb-10 border-l-4 border-yellow-500 pl-4" data-aos="fade-right">Certifications</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+            <a href="pdf/certificat-pix.pdf" target="_blank" class="glass-card p-4 flex items-center gap-4 hover:bg-white/5 transition-colors group" data-aos="fade-up">
+                <div class="text-yellow-500 text-3xl group-hover:scale-110 transition-transform"><i class="fas fa-certificate"></i></div>
+                <div>
+                    <h4 class="font-bold group-hover:text-accent transition-colors">Certificat Pix</h4>
+                    <span class="text-xs text-muted">Compétences Numériques</span>
+                </div>
+                <div class="ml-auto text-gray-500"><i class="fas fa-external-link-alt"></i></div>
+            </a>
+            <a href="pdf/packet-tracer.pdf" target="_blank" class="glass-card p-4 flex items-center gap-4 hover:bg-white/5 transition-colors group" data-aos="fade-up" data-aos-delay="100">
+                <div class="text-blue-500 text-3xl group-hover:scale-110 transition-transform"><i class="fas fa-network-wired"></i></div>
+                <div>
+                    <h4 class="font-bold group-hover:text-accent transition-colors">Cisco Packet Tracer</h4>
+                    <span class="text-xs text-muted">Introduction Packet Tracer</span>
+                </div>
+                <div class="ml-auto text-gray-500"><i class="fas fa-external-link-alt"></i></div>
+            </a>
+            <a href="pdf/cybersecurite.pdf" target="_blank" class="glass-card p-4 flex items-center gap-4 hover:bg-white/5 transition-colors group" data-aos="fade-up" data-aos-delay="200">
+                <div class="text-red-500 text-3xl group-hover:scale-110 transition-transform"><i class="fas fa-user-secret"></i></div>
+                <div>
+                    <h4 class="font-bold group-hover:text-accent transition-colors">Cybersécurité</h4>
+                    <span class="text-xs text-muted">Introduction à la cybersécurité</span>
+                </div>
+                <div class="ml-auto text-gray-500"><i class="fas fa-external-link-alt"></i></div>
+            </a>
+            <a href="pdf/reseaux.pdf" target="_blank" class="glass-card p-4 flex items-center gap-4 hover:bg-white/5 transition-colors group" data-aos="fade-up" data-aos-delay="300">
+                <div class="text-green-500 text-3xl group-hover:scale-110 transition-transform"><i class="fas fa-wifi"></i></div>
+                <div>
+                    <h4 class="font-bold group-hover:text-accent transition-colors">Réseaux</h4>
+                    <span class="text-xs text-muted">Notions de base</span>
+                </div>
+                <div class="ml-auto text-gray-500"><i class="fas fa-external-link-alt"></i></div>
+            </a>
         </div>
       </div>
-    </section>
 
-    <!-- SECTION TABLEAU DE SYNTHÈSE -->
-    <section id="synthese" class="section">
-      <div class="container">
-        <h2 class="title"><span class="accent">Tableau de Synthèse</span></h2>
-        <p class="lead">Annexe 8-1 - Tableau de synthèse - Épreuve E5 (BTS SIO SISR)</p>
+    </div>
+  </section>
+
+  <section id="stages" class="py-24 bg-black/20">
+    <div class="container mx-auto px-6">
+        <h2 class="section-title text-center mb-12" data-aos="fade-up">Expérience Professionnelle</h2>
         
-        <div class="card" style="text-align:center;">
-          <iframe src="pdf/annexe-bts.xlsx" style="width:100%;height:500px;border:none;background:#fff;border-radius:12px;"></iframe>
-          <br><br>
-          <a href="pdf/annexe-bts.xlsx" download class="btn-solid">Télécharger le Tableau (Excel)</a>
+        <div class="max-w-5xl mx-auto">
+            <div class="glass-card p-0 overflow-hidden flex flex-col md:flex-row" data-aos="fade-up">
+                <div class="md:w-2/5 relative bg-white h-64 md:h-auto">
+                    <img src="images/hopital.png" alt="Hôpital Européen de Paris" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
+                    <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black/80 to-transparent w-full p-4">
+                        <span class="text-white font-bold text-lg">Hôpital Européen de Paris</span>
+                    </div>
+                </div>
+                
+                <div class="md:w-3/5 p-8 flex flex-col justify-center">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-2xl font-bold text-accent">Technicien Support & Réseau</h3>
+                        <span class="text-xs bg-accent/10 text-accent border border-accent/20 px-2 py-1 rounded">Mai - Juil 2025</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 text-sm leading-relaxed">
+                        Au sein du service informatique de l'hôpital, j'ai participé au maintien en condition opérationnelle du système d'information critique.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="flex items-center gap-2 text-sm text-gray-400"><i class="fas fa-check-circle text-accent"></i> Gestion Active Directory</div>
+                        <div class="flex items-center gap-2 text-sm text-gray-400"><i class="fas fa-check-circle text-accent"></i> Déploiement GLPI</div>
+                        <div class="flex items-center gap-2 text-sm text-gray-400"><i class="fas fa-check-circle text-accent"></i> Maintenance Postes</div>
+                        <div class="flex items-center gap-2 text-sm text-gray-400"><i class="fas fa-check-circle text-accent"></i> Support Utilisateurs</div>
+                    </div>
+                    <a href="pdf/rapport_stage_hopital.pdf" download class="btn-solid self-start">
+                        <i class="fas fa-file-pdf mr-2"></i> Lire le Rapport
+                    </a>
+                </div>
+            </div>
         </div>
+    </div>
+  </section>
+
+  <section id="veille" class="py-24">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-12">
+             <h2 class="section-title" data-aos="fade-up">Veille Technologique</h2>
+             <p class="text-muted mt-2">Méthodologie, Outils et Analyse.</p>
+        </div>
+       
+        <div class="glass-card max-w-5xl mx-auto p-8 relative overflow-hidden" data-aos="zoom-in">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8 pb-8 border-b border-white/10">
+                <div>
+                     <h3 class="text-2xl font-bold text-white mb-2">L'Impact de l'IA sur la Cybersécurité</h3>
+                     <p class="text-accent text-sm uppercase tracking-widest font-semibold">Thème 2024-2025</p>
+                </div>
+                <div class="mt-4 md:mt-0 flex gap-2">
+                    <span class="px-3 py-1 rounded-full bg-white/5 text-xs border border-white/10">Deepfakes</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 text-xs border border-white/10">Malwares IA</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 text-xs border border-white/10">SOC Automatisé</span>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h4 class="text-lg font-bold mb-4 flex items-center gap-2"><i class="fas fa-chart-pie text-accent"></i> Analyse du Sujet</h4>
+                    <div class="space-y-6">
+                        <div class="bg-white/5 p-4 rounded-lg border border-red-500/20">
+                            <h5 class="text-red-400 font-bold mb-1 text-sm"><i class="fas fa-exclamation-triangle mr-2"></i> Nouvelles Menaces</h5>
+                            <p class="text-xs text-gray-400 leading-relaxed">
+                                L'IA permet aux attaquants de générer des campagnes de phishing ultra-personnalisées et crédibles à grande échelle. Les malwares "polymorphes" générés par IA modifient leur code en temps réel pour échapper aux antivirus classiques.
+                            </p>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-lg border border-green-500/20">
+                            <h5 class="text-green-400 font-bold mb-1 text-sm"><i class="fas fa-shield-alt mr-2"></i> Défense Intelligente</h5>
+                            <p class="text-xs text-gray-400 leading-relaxed">
+                                En réponse, les SOC (Security Operations Centers) intègrent le Machine Learning pour détecter les anomalies comportementales sur le réseau (UEBA) plus rapidement qu'un humain ne pourrait le faire.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4 flex items-center gap-2"><i class="fas fa-tools text-accent"></i> Méthodologie</h4>
+                    
+                    <div class="mb-6">
+                        <p class="text-sm text-gray-300 mb-3">J'utilise un agrégateur de flux RSS pour centraliser l'information et gagner du temps.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="bg-black/40 px-3 py-2 rounded flex items-center gap-2 border border-white/10">
+                                <img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/feedly_logo_icon_169194.png" class="w-5 h-5"> 
+                                <span class="text-xs font-mono">Feedly</span>
+                            </div>
+                            <div class="bg-black/40 px-3 py-2 rounded flex items-center gap-2 border border-white/10">
+                                <i class="fab fa-google text-blue-400"></i>
+                                <span class="text-xs font-mono">Google Alerts</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="text-lg font-bold mb-4 flex items-center gap-2"><i class="fas fa-rss text-accent"></i> Sources Principales</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-center justify-between hover:text-white transition-colors p-2 rounded hover:bg-white/5">
+                            <span><i class="fas fa-circle text-[8px] text-accent mr-2"></i> ANSSI (Cert-FR)</span>
+                            <i class="fas fa-external-link-alt text-xs opacity-50"></i>
+                        </li>
+                        <li class="flex items-center justify-between hover:text-white transition-colors p-2 rounded hover:bg-white/5">
+                            <span><i class="fas fa-circle text-[8px] text-accent mr-2"></i> ZDNet Sécurité</span>
+                            <i class="fas fa-external-link-alt text-xs opacity-50"></i>
+                        </li>
+                        <li class="flex items-center justify-between hover:text-white transition-colors p-2 rounded hover:bg-white/5">
+                            <span><i class="fas fa-circle text-[8px] text-accent mr-2"></i> BleepingComputer</span>
+                            <i class="fas fa-external-link-alt text-xs opacity-50"></i>
+                        </li>
+                        <li class="flex items-center justify-between hover:text-white transition-colors p-2 rounded hover:bg-white/5">
+                            <span><i class="fas fa-circle text-[8px] text-accent mr-2"></i> The Hacker News</span>
+                            <i class="fas fa-external-link-alt text-xs opacity-50"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section id="synthese" class="py-20 bg-black/40 border-t border-white/5">
+    <div class="container mx-auto px-6 text-center">
+        <h2 class="text-2xl font-bold mb-6">Documents Officiels</h2>
+        <div class="flex justify-center gap-4 flex-wrap">
+            <a href="pdf/annexe-bts.pdf" download class="glass-card px-8 py-4 hover:bg-accent/10 transition-colors flex items-center gap-3">
+                <i class="fas fa-table text-accent"></i> Tableau de Synthèse E4
+            </a>
+            <a href="docs/cv.pdf" download class="glass-card px-8 py-4 hover:bg-accent/10 transition-colors flex items-center gap-3">
+                <i class="fas fa-file-alt text-accent"></i> Curriculum Vitae
+            </a>
+        </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-24">
+      <div class="container mx-auto px-6 text-center">
+          <h2 class="text-4xl font-bold mb-8">Restons en <span class="text-accent">Contact</span></h2>
+          <p class="text-muted mb-12">Ouvert aux opportunités d'alternance pour l'année prochaine.</p>
+          
+          <div class="flex justify-center gap-6">
+              <a href="mailto:aziz.benyamina@exemple.com" class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-2xl hover:bg-accent hover:text-black transition-all hover:-translate-y-2">
+                  <i class="fas fa-envelope"></i>
+              </a>
+              <a href="#" class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-2xl hover:bg-[#0077b5] hover:text-white transition-all hover:-translate-y-2">
+                  <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://github.com/itzazizo" class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-2xl hover:bg-gray-200 hover:text-black transition-all hover:-translate-y-2">
+                  <i class="fab fa-github"></i>
+              </a>
+          </div>
       </div>
-    </section>
+  </section>
 
-    <!-- SECTION CV -->
-    <section id="cv" class="section">
-      <div class="container" style="text-align:center;">
-        <h2 class="title"><span class="accent">Mon CV</span></h2>
-        <p class="lead">Téléchargez mon CV au format PDF</p>
-        <a href="docs/cv.pdf" download class="btn-solid">📄 Télécharger mon CV</a>
-      </div>
-    </section>
+</main>
 
-    <!-- FOOTER -->
-    <footer class="section glass" style="padding:20px;text-align:center;">
-      <p class="text-muted">© 2025 - Portfolio Azi Benyamina Houari - BTS SIO SISR</p>
-    </footer>
-  </main>
+<footer class="py-8 text-center border-t border-white/5 text-sm text-gray-500">
+  <p>© 2025 Aziz Benyamina-Houari • BTS SIO SISR • Portfolio</p>
+</footer>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    // AOS init
-    AOS.init({ duration: 1200, once: true });
-
-    // Animate skill bars
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll('.skill-fill').forEach(el => {
-        const percent = el.getAttribute('data-percent');
-        setTimeout(()=> el.style.width = percent, 300);
-      });
-    });
-
-    // Cursor particles effect
-    const canvas = document.getElementById('cursor-canvas');
-    if(canvas){
-      const ctx = canvas.getContext('2d');
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      let particles = [];
-      window.addEventListener('mousemove', e => {
-        for(let i=0; i<2; i++){
-          particles.push({
-            x: e.clientX, y: e.clientY,
-            vx: (Math.random()-0.5)*2,
-            vy: (Math.random()-0.5)*2,
-            size: Math.random()*4 + 2,
-            life: 60
-          });
-        }
-      });
-      function animate(){
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-        particles.forEach((p, index) => {
-          p.x += p.vx; p.y += p.vy; p.life--;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
-          ctx.fillStyle = `rgba(203, 164, 247, ${p.life/60})`;
-          ctx.fill();
-          if(p.life <= 0) particles.splice(index,1);
-        });
-        requestAnimationFrame(animate);
-      }
-      animate();
-      window.addEventListener('resize', () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      });
-    }
-  </script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
-
