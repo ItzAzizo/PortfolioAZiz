@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+:root {
+    --accent: #cba4f7;
+    /* Violet pastel moderne */
+    --dark-bg: #05080f;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--dark-bg);
+    color: white;
+}
+
+/* --- Glassmorphism Utilities --- */
+.glass-nav {
+    background: rgba(5, 8, 15, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(203, 164, 247, 0.3);
+    /* Accent color border on hover */
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Buttons --- */
+.btn-glow {
+    background: var(--accent);
+    color: #05080f;
+    padding: 12px 28px;
+    border-radius: 99px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(203, 164, 247, 0.4);
+}
+
+.btn-glow:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 0 30px rgba(203, 164, 247, 0.6);
+}
+
+.btn-outline {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 28px;
+    border-radius: 99px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(203, 164, 247, 0.05);
+}
+
+.btn-sm-solid {
+    background: white;
+    color: black;
+    padding: 8px 20px;
+    border-radius: 99px;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+
+.btn-sm-solid:hover {
+    transform: scale(1.05);
+}
+
+.btn-solid {
+    background: var(--accent);
+    color: black;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.btn-solid:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px -5px rgba(203, 164, 247, 0.4);
+}
+
+/* --- Navigation --- */
+.nav-link {
+    position: relative;
+    color: #9ca3af;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* --- Logo --- */
+.logo {
+    background: linear-gradient(135deg, var(--accent), #a855f7);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: 900;
+    font-size: 18px;
+    color: #000;
+    transition: transform 0.3s;
+    box-shadow: 0 0 20px rgba(203, 164, 247, 0.5);
+}
+
+.logo:hover {
+    transform: rotate(360deg) scale(1.1);
+}
+
+/* --- Section Title --- */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    position: relative;
+    display: inline-block;
+}
+
+/* --- Skill Badges --- */
+.skill-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    border: 1px solid;
+    transition: all 0.3s ease;
+}
+
+.badge-avance {
+    background: rgba(34, 197, 94, 0.1);
+    border-color: rgba(34, 197, 94, 0.4);
+    color: #22c55e;
+}
+
+.badge-confirme {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.4);
+    color: #3b82f6;
+}
+
+.badge-acquisition {
+    background: rgba(234, 179, 8, 0.1);
+    border-color: rgba(234, 179, 8, 0.4);
+    color: #eab308;
+}
+
+.skill-badge:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(203, 164, 247, 0.3);
+}
+
+/* --- Timeline (nouveau) --- */
+.timeline-container {
+    position: relative;
+    padding-left: 50px;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom,
+            var(--accent),
+            rgba(203, 164, 247, 0.5),
+            transparent);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -38px;
+    top: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 4px solid #05080f;
+    box-shadow: 0 0 20px rgba(203, 164, 247, 0.6);
+    z-index: 10;
+}
+
+/* --- Utils --- */
+.text-muted {
+    color: #9ca3af;
+}
+
+.text-accent {
+    color: var(--accent);
+}
