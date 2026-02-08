@@ -34,6 +34,7 @@
         <a href="#projets" class="nav-link">Projets</a>
         <a href="#certifications" class="nav-link">Certifs</a>
         <a href="#stages" class="nav-link">Stages</a>
+        <a href="#formation" class="nav-link">Formation</a>
         <a href="#veille" class="nav-link">Veille</a>
         <a href="#contact" class="btn-sm-solid">Contact</a>
       </nav>
@@ -52,6 +53,8 @@
       <a href="#certifications" onclick="toggleMenu()"
         class="py-3 w-full text-center hover:bg-white/5">Certifications</a>
       <a href="#stages" onclick="toggleMenu()" class="py-3 w-full text-center hover:bg-white/5">Stages</a>
+      <a href="#formation" onclick="toggleMenu()" class="py-3 w-full text-center hover:bg-white/5">Formation</a>
+      <a href="#veille" onclick="toggleMenu()" class="py-3 w-full text-center hover:bg-white/5">Veille</a>
       <a href="#contact" onclick="toggleMenu()" class="py-3 w-full text-center hover:bg-white/5">Contact</a>
     </div>
   </header>
@@ -166,6 +169,71 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION FORMATION -->
+    <section id="formation" class="py-24 bg-black/20">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="text-4xl font-bold mb-4">Ma <span class="text-accent">Formation</span></h2>
+          <p class="text-muted">Parcours scolaire et diplômes obtenus</p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+          <div class="grid md:grid-cols-2 gap-8">
+            <!-- BTS SIO SISR -->
+            <div class="glass-card p-8 hover:border-accent/50 transition-all" data-aos="fade-right">
+              <div class="flex items-start justify-between mb-6">
+                <div class="bg-purple-500/20 p-3 rounded-lg text-purple-400">
+                  <i class="fas fa-graduation-cap text-3xl"></i>
+                </div>
+                <span class="text-xs font-bold border border-purple-500/30 text-purple-400 px-2 py-1 rounded">2023 -
+                  2025</span>
+              </div>
+              <h3 class="text-2xl font-bold mb-2 text-accent">BTS SIO</h3>
+              <p class="text-lg text-purple-300 mb-2">Option SISR</p>
+              <p class="text-gray-400 text-sm mb-4">
+                Services Informatiques aux Organisations – Solutions d'Infrastructure, Systèmes et Réseaux
+              </p>
+              <p class="text-gray-500 text-xs mb-4">
+                <i class="fas fa-map-marker-alt mr-2"></i>Lycée Turgot, Paris
+              </p>
+              <ul class="space-y-2 text-sm text-gray-300">
+                <li><i class="fas fa-check text-accent mr-2"></i>Administration Système Windows/Linux</li>
+                <li><i class="fas fa-check text-accent mr-2"></i>Virtualisation & Cloud (Proxmox, Docker)</li>
+                <li><i class="fas fa-check text-accent mr-2"></i>Cybersécurité & Réseau</li>
+                <li><i class="fas fa-check text-accent mr-2"></i>Scripting (Bash, PowerShell)</li>
+              </ul>
+            </div>
+
+            <!-- Bac Pro SN -->
+            <div class="glass-card p-8 hover:border-accent/50 transition-all" data-aos="fade-left">
+              <div class="flex items-start justify-between mb-6">
+                <div class="bg-cyan-500/20 p-3 rounded-lg text-cyan-400">
+                  <i class="fas fa-microchip text-3xl"></i>
+                </div>
+                <span class="text-xs font-bold border border-cyan-500/30 text-cyan-400 px-2 py-1 rounded">2020 -
+                  2023</span>
+              </div>
+              <h3 class="text-2xl font-bold mb-2 text-accent">Bac Pro SN</h3>
+              <p class="text-lg text-cyan-300 mb-2">Option RISC — <span class="text-yellow-400 font-semibold">Mention
+                  Bien</span></p>
+              <p class="text-gray-400 text-sm mb-4">
+                Systèmes Numériques – Réseaux Informatiques et Systèmes Communicants
+              </p>
+              <p class="text-gray-500 text-xs mb-4">
+                <i class="fas fa-map-marker-alt mr-2"></i>Lycée Paul Bert, Maisons-Alfort
+              </p>
+              <ul class="space-y-2 text-sm text-gray-300">
+                <li><i class="fas fa-check text-cyan-400 mr-2"></i>Installation & Maintenance Réseau</li>
+                <li><i class="fas fa-check text-cyan-400 mr-2"></i>Configuration Équipements Réseau</li>
+                <li><i class="fas fa-check text-cyan-400 mr-2"></i>Câblage & Infrastructure</li>
+                <li><i class="fas fa-check text-cyan-400 mr-2"></i>Électronique & Systèmes Embarqués</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -341,7 +409,7 @@
         <div class="mb-20">
           <h2 class="text-3xl font-bold mb-10 border-l-4 border-accent pl-4" data-aos="fade-right">Autres Projets
             Académiques</h2>
-          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div
               class="glass-card p-6 text-center flex flex-col h-full hover:-translate-y-2 transition-transform duration-300"
               data-aos="zoom-in">
@@ -352,9 +420,16 @@
               <h3 class="font-bold mb-2">Serveur Mail</h3>
               <p class="text-xs text-gray-400 flex-grow mb-4">Déploiement Postfix / Dovecot sous Debian avec
                 authentification LDAP/AD.</p>
-              <a href="docs/projet_messagerie.pdf" target="_blank"
-                class="text-xs btn-sm-solid w-full block py-2 mt-auto"><i class="fas fa-file-pdf mr-1"></i> Dossier
-                PDF</a>
+              <div class="flex flex-wrap gap-2 justify-center">
+                <a href="docmSio/Documentation_Technique_messagerie .pdf" target="_blank"
+                  class="text-xs text-purple-400 hover:text-purple-300"><i class="fas fa-file-pdf mr-1"></i>Doc
+                  Technique</a>
+                <a href="docmSio/cahier des charges serveur de sauvgarde.pdf" target="_blank"
+                  class="text-xs text-blue-400 hover:text-blue-300"><i class="fas fa-file-pdf mr-1"></i>Cahier
+                  Charges</a>
+                <a href="docmSio/Cahier de tests.APACHEpdf.pdf" target="_blank"
+                  class="text-xs text-orange-400 hover:text-orange-300"><i class="fas fa-file-pdf mr-1"></i>Tests</a>
+              </div>
             </div>
             <div
               class="glass-card p-6 text-center flex flex-col h-full hover:-translate-y-2 transition-transform duration-300"
@@ -366,9 +441,15 @@
               <h3 class="font-bold mb-2">Site Web Clinique</h3>
               <p class="text-xs text-gray-400 flex-grow mb-4">Hébergement d'un site vitrine sous Apache/Debian 12 avec
                 base SQL.</p>
-              <a href="docs/projet_clinique.pdf" target="_blank"
-                class="text-xs btn-sm-solid w-full block py-2 mt-auto"><i class="fas fa-file-pdf mr-1"></i> Dossier
-                PDF</a>
+              <div class="flex flex-wrap gap-2 justify-center">
+                <a href="docmSio/Cahier des ChargeWordpress.pdf" target="_blank"
+                  class="text-xs text-cyan-400 hover:text-cyan-300"><i class="fas fa-file-pdf mr-1"></i>Cahier
+                  Charges</a>
+                <a href="docmSio/Cahier de Production wordpress.pdf" target="_blank"
+                  class="text-xs text-green-400 hover:text-green-300"><i class="fas fa-file-pdf mr-1"></i>Production</a>
+                <a href="docmSio/Cahier de Tests wordpress.pdf" target="_blank"
+                  class="text-xs text-yellow-400 hover:text-yellow-300"><i class="fas fa-file-pdf mr-1"></i>Tests</a>
+              </div>
             </div>
             <div
               class="glass-card p-6 text-center flex flex-col h-full hover:-translate-y-2 transition-transform duration-300"
@@ -380,21 +461,14 @@
               <h3 class="font-bold mb-2">Supervision GLPI</h3>
               <p class="text-xs text-gray-400 flex-grow mb-4">Mise en place de GLPI pour la gestion de parc et suivi des
                 tickets incidents.</p>
-              <a href="docs/projet_glpi.pdf" target="_blank" class="text-xs btn-sm-solid w-full block py-2 mt-auto"><i
-                  class="fas fa-file-pdf mr-1"></i> Dossier PDF</a>
-            </div>
-            <div
-              class="glass-card p-6 text-center flex flex-col h-full hover:-translate-y-2 transition-transform duration-300"
-              data-aos="zoom-in" data-aos-delay="300">
-              <div
-                class="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4 text-red-400">
-                <i class="fas fa-lock text-2xl"></i>
+              <div class="flex flex-wrap gap-2 justify-center">
+                <a href="docmSio/SGBD.pdf" target="_blank" class="text-xs text-indigo-400 hover:text-indigo-300"><i
+                    class="fas fa-file-pdf mr-1"></i>SGBD</a>
+                <a href="docmSio/CahierdeTest_LAMP.pdf" target="_blank"
+                  class="text-xs text-orange-400 hover:text-orange-300"><i class="fas fa-file-pdf mr-1"></i>Tests</a>
+                <a href="docmSio/documentation technique 18_3.pdf" target="_blank"
+                  class="text-xs text-teal-400 hover:text-teal-300"><i class="fas fa-file-pdf mr-1"></i>Doc Tech</a>
               </div>
-              <h3 class="font-bold mb-2">Sécurité Mairie</h3>
-              <p class="text-xs text-gray-400 flex-grow mb-4">Segmentation réseau VLAN, configuration switchs et
-                sécurisation d'accès.</p>
-              <a href="docs/projet_mairie.pdf" target="_blank" class="text-xs btn-sm-solid w-full block py-2 mt-auto"><i
-                  class="fas fa-file-pdf mr-1"></i> Dossier PDF</a>
             </div>
           </div>
         </div>
@@ -580,7 +654,7 @@
                   <!-- Compétences acquises -->
                   <div class="border-t border-white/10 pt-4">
                     <h5 class="text-sm font-bold mb-3 text-gray-400">Compétences acquises :</h5>
-                    <div class="flex gap-2 flex-wrap">
+                    <div class="flex gap-2 flex-wrap mb-4">
                       <span class="skill-badge badge-avance">Docker</span>
                       <span class="skill-badge badge-avance">Kubernetes (K3s)</span>
                       <span class="skill-badge badge-confirme">GitLab CI/CD</span>
@@ -588,6 +662,9 @@
                       <span class="skill-badge badge-avance">Cybersécurité</span>
                       <span class="skill-badge badge-confirme">Durcissement Serveur</span>
                     </div>
+                    <a href="pdf/rapport_stage_ja.pdf" target="_blank" class="btn-solid">
+                      <i class="fas fa-file-pdf mr-2"></i> Lire le Rapport de Stage
+                    </a>
                   </div>
                 </div>
               </div>
@@ -749,7 +826,7 @@
             class="glass-card px-8 py-4 hover:bg-accent/10 transition-colors flex items-center gap-3">
             <i class="fas fa-table text-accent"></i> Tableau de Synthèse E4
           </a>
-          <a href="docs/cv.pdf" target="_blank"
+          <a href="pdf/cv.pdf" target="_blank"
             class="glass-card px-8 py-4 hover:bg-accent/10 transition-colors flex items-center gap-3">
             <i class="fas fa-file-alt text-accent"></i> Curriculum Vitae
           </a>
