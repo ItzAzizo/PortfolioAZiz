@@ -81,136 +81,164 @@ if (canvas) {
 }
 
 // ============================================
-// API CYBERSÉCURITÉ - Menaces IA & Attaques
+// VEILLE CYBERSÉCURITÉ - 3 PILIERS IA
 // ============================================
 
-// Données de veille cybersécurité (simulation API)
-const securityData = [
-  {
-    title: "Deepfakes IA : Nouvelle génération d'attaques",
-    desc: "Les deepfakes audio permettent désormais d'imiter la voix d'un PDG pour des fraudes au virement.",
-    type: "danger",
-    icon: "fa-user-secret",
-    date: "Fév 2026",
-    url: "https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/deepfakes-comment-les-reconnaitre"
-  },
-  {
-    title: "Malwares polymorphes générés par GPT",
-    desc: "Des malwares utilisent l'IA pour modifier leur code en temps réel et échapper aux antivirus.",
-    type: "danger",
-    icon: "fa-virus",
-    date: "Fév 2026",
-    url: "https://www.kaspersky.fr/resource-center/definitions/what-is-a-polymorphic-virus"
-  },
-  {
-    title: "Phishing automatisé par ChatGPT",
-    desc: "Des campagnes de phishing ultra-personnalisées créées automatiquement par des LLM.",
-    type: "warning",
-    icon: "fa-fish",
-    date: "Jan 2026",
-    url: "https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/hameconnage-phishing"
-  },
-  {
-    title: "SOC augmenté par Machine Learning",
-    desc: "Les centres de sécurité intègrent l'IA pour détecter les anomalies comportementales (UEBA).",
-    type: "defense",
-    icon: "fa-shield-alt",
-    date: "Fév 2026",
-    url: "https://www.ssi.gouv.fr/entreprise/bonnes-pratiques/"
-  },
-  {
-    title: "Attaques adversariales sur modèles IA",
-    desc: "Des hackers manipulent les entrées des modèles IA pour contourner les systèmes de détection.",
-    type: "danger",
-    icon: "fa-robot",
-    date: "Jan 2026",
-    url: "https://owasp.org/www-project-machine-learning-security-top-10/"
-  },
-  {
-    title: "Ransomware ciblant les infrastructures critiques",
-    desc: "Augmentation de 300% des attaques sur les hôpitaux et réseaux énergétiques.",
-    type: "warning",
-    icon: "fa-lock",
-    date: "Déc 2025",
-    url: "https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/rancongiciels-ransomwares"
-  },
-  {
-    title: "Zero-Trust : Nouvelle norme de sécurité",
-    desc: "L'architecture Zero-Trust devient obligatoire pour les entreprises du CAC40.",
-    type: "defense",
-    icon: "fa-check-shield",
-    date: "Jan 2026",
-    url: "https://www.ssi.gouv.fr/actualite/le-modele-zero-trust/"
-  },
-  {
-    title: "Vulnérabilités dans les API LLM",
-    desc: "Découverte de failles permettant l'injection de prompts malveillants dans les assistants IA.",
-    type: "danger",
-    icon: "fa-code",
-    date: "Fév 2026",
-    url: "https://genai.owasp.org/"
-  }
-];
+// Les 3 piliers de la veille IA & Cybersécurité
+const veilleData = {
+  // PILIER 1: IA Offensive (The Dark Side)
+  offensive: [
+    {
+      title: "Prompt Injection : Menace #1 OWASP 2025",
+      desc: "Technique permettant de manipuler les LLM pour extraire des données sensibles ou contourner leurs protections.",
+      icon: "fa-terminal",
+      date: "Fév 2026",
+      url: "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
+    },
+    {
+      title: "Malwares Polymorphes générés par IA",
+      desc: "Code malveillant qui modifie sa signature à chaque exécution pour échapper aux antivirus et EDR.",
+      icon: "fa-virus",
+      date: "Fév 2026",
+      url: "https://www.ncsc.gov.uk/report/impact-of-ai-on-cyber-threat"
+    },
+    {
+      title: "Deepfakes Audio : Fraudes au virement",
+      desc: "L'IA permet de cloner la voix d'un PDG pour orchestrer des fraudes. Plus de 8M deepfakes partagés en 2025.",
+      icon: "fa-user-secret",
+      date: "Jan 2026",
+      url: "https://www.cybermalveillance.gouv.fr/tous-nos-contenus/bonnes-pratiques"
+    },
+    {
+      title: "Phishing hyper-personnalisé par GPT",
+      desc: "Les LLM génèrent des campagnes de phishing ultra-ciblées en analysant les réseaux sociaux des victimes.",
+      icon: "fa-fish",
+      date: "Jan 2026",
+      url: "https://www.cert.ssi.gouv.fr/"
+    }
+  ],
 
-// Fonction pour afficher le flux de sécurité
-function displaySecurityFeed() {
-  const container = document.getElementById('security-feed');
-  if (!container) return;
+  // PILIER 2: IA Défensive (The Shield)
+  defensive: [
+    {
+      title: "UEBA : Détection comportementale",
+      desc: "User and Entity Behavior Analytics - L'IA repère les comportements anormaux des utilisateurs sur le réseau.",
+      icon: "fa-user-shield",
+      date: "Fév 2026",
+      url: "https://www.ssi.gouv.fr/entreprise/guide/prestataires-de-services-de-securite/"
+    },
+    {
+      title: "SOAR : Réponse automatisée aux incidents",
+      desc: "Security Orchestration, Automation and Response - Automatisation de la détection et réponse aux menaces 24/7.",
+      icon: "fa-robot",
+      date: "Fév 2026",
+      url: "https://www.microsoft.com/en-us/security/blog/"
+    },
+    {
+      title: "Zero-Trust avec IA adaptative",
+      desc: "L'architecture Zero-Trust s'enrichit de l'IA pour valider en continu l'identité de chaque accès.",
+      icon: "fa-shield-halved",
+      date: "Jan 2026",
+      url: "https://www.cloudflare.com/fr-fr/learning/security/glossary/what-is-zero-trust/"
+    },
+    {
+      title: "SOC augmenté par Machine Learning",
+      desc: "Les Security Operations Centers intègrent le ML pour analyser des millions d'événements en temps réel.",
+      icon: "fa-chart-line",
+      date: "Jan 2026",
+      url: "https://thehackernews.com/"
+    }
+  ],
 
-  // Mélanger et prendre 4 éléments aléatoires
-  const shuffled = [...securityData].sort(() => 0.5 - Math.random());
-  const selected = shuffled.slice(0, 4);
+  // PILIER 3: IA comme Cible (Adversarial ML)
+  adversarial: [
+    {
+      title: "Empoisonnement des données d'entraînement",
+      desc: "Les attaquants corrompent les datasets pour créer des backdoors dans les modèles IA de production.",
+      icon: "fa-database",
+      date: "Fév 2026",
+      url: "https://owasp.org/www-project-machine-learning-security-top-10/"
+    },
+    {
+      title: "Attaques adversariales sur les modèles",
+      desc: "Manipulation subtile des entrées pour tromper les systèmes de classification IA.",
+      icon: "fa-image",
+      date: "Fév 2026",
+      url: "https://genai.owasp.org/"
+    },
+    {
+      title: "Model Extraction : Vol de modèles IA",
+      desc: "Techniques pour reconstruire un modèle propriétaire en analysant ses réponses via des requêtes ciblées.",
+      icon: "fa-copy",
+      date: "Jan 2026",
+      url: "https://www.zdnet.fr/actualites/cybersecurite/"
+    },
+    {
+      title: "Jailbreaking des systèmes IA",
+      desc: "Contournement des guardrails des LLM pour leur faire générer du contenu malveillant.",
+      icon: "fa-unlock",
+      date: "Jan 2026",
+      url: "https://www.lemondeinformatique.fr/les-dossiers/lire-vulnerabilites-failles-et-cyberattaques-59.html"
+    }
+  ]
+};
 
-  const colors = {
-    danger: { bg: 'bg-red-500/10', border: 'border-red-500/30', icon: 'text-red-400' },
-    warning: { bg: 'bg-yellow-500/10', border: 'border-yellow-500/30', icon: 'text-yellow-400' },
-    defense: { bg: 'bg-green-500/10', border: 'border-green-500/30', icon: 'text-green-400' }
+// Fonction pour afficher les 3 piliers de veille
+function displayVeillePiliers() {
+  const containers = {
+    offensive: document.getElementById('veille-offensive'),
+    defensive: document.getElementById('veille-defensive'),
+    adversarial: document.getElementById('veille-adversarial')
   };
 
-  container.innerHTML = selected.map(item => {
-    const color = colors[item.type];
-    return `
-      <a href="${item.url}" target="_blank" class="${color.bg} p-4 rounded-lg border ${color.border} hover:scale-[1.02] transition-transform cursor-pointer block">
+  const colors = {
+    offensive: { bg: 'bg-red-500/10', border: 'border-red-500/30', icon: 'text-red-400' },
+    defensive: { bg: 'bg-green-500/10', border: 'border-green-500/30', icon: 'text-green-400' },
+    adversarial: { bg: 'bg-purple-500/10', border: 'border-purple-500/30', icon: 'text-purple-400' }
+  };
+
+  Object.keys(containers).forEach(pilier => {
+    const container = containers[pilier];
+    if (!container) return;
+
+    const items = veilleData[pilier];
+    const color = colors[pilier];
+
+    container.innerHTML = items.map(item => `
+      <a href="${item.url}" target="_blank" class="${color.bg} p-3 rounded-lg border ${color.border} hover:scale-[1.02] transition-transform cursor-pointer block">
         <div class="flex items-start gap-3">
-          <i class="fas ${item.icon} ${color.icon} text-xl mt-1"></i>
+          <i class="fas ${item.icon} ${color.icon} text-lg mt-1"></i>
           <div class="flex-grow">
-            <h4 class="font-bold text-sm text-white mb-1">${item.title}</h4>
+            <h5 class="font-bold text-sm text-white mb-1">${item.title}</h5>
             <p class="text-xs text-gray-400 leading-relaxed">${item.desc}</p>
             <div class="flex items-center justify-between mt-2">
               <span class="text-xs text-gray-500"><i class="fas fa-calendar-alt mr-1"></i>${item.date}</span>
-              <span class="text-xs text-accent"><i class="fas fa-external-link-alt mr-1"></i>Lire l'article</span>
+              <span class="text-xs ${color.icon}"><i class="fas fa-external-link-alt mr-1"></i>Source</span>
             </div>
           </div>
         </div>
       </a>
+    `).join('');
+  });
+}
+
+// Fonction pour rafraîchir avec animation
+function refreshVeille() {
+  const allContainers = document.querySelectorAll('[id^="veille-"]');
+  allContainers.forEach(container => {
+    container.innerHTML = `
+      <div class="bg-white/5 p-3 rounded-lg border border-white/10 animate-pulse">
+        <div class="h-4 bg-gray-700 rounded w-3/4 mb-2"></div>
+        <div class="h-3 bg-gray-700 rounded w-1/2"></div>
+      </div>
     `;
-  }).join('');
+  });
+  setTimeout(displayVeillePiliers, 500);
 }
 
-// Fonction pour rafraîchir le flux
-function refreshSecurityFeed() {
-  const container = document.getElementById('security-feed');
-  if (!container) return;
-
-  // Animation de chargement
-  container.innerHTML = `
-    <div class="bg-white/5 p-4 rounded-lg border border-white/10 animate-pulse">
-      <div class="h-4 bg-gray-700 rounded w-3/4 mb-2"></div>
-      <div class="h-3 bg-gray-700 rounded w-1/2"></div>
-    </div>
-    <div class="bg-white/5 p-4 rounded-lg border border-white/10 animate-pulse">
-      <div class="h-4 bg-gray-700 rounded w-3/4 mb-2"></div>
-      <div class="h-3 bg-gray-700 rounded w-1/2"></div>
-    </div>
-  `;
-
-  // Afficher après un court délai
-  setTimeout(displaySecurityFeed, 500);
-}
-
-// Charger le flux au chargement de la page
+// Charger au chargement de la page
 document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(displaySecurityFeed, 1000);
+  setTimeout(displayVeillePiliers, 800);
 });
 
 // ============================================

@@ -515,7 +515,7 @@
 
         <div class="glass-card p-1 mb-16 border-accent/30 mx-auto max-w-5xl" data-aos="zoom-in">
           <div class="bg-gray-900/80 rounded-lg p-4 relative min-h-[300px] flex items-center justify-center group">
-            <img src="images/infra_sisr.png" alt="Schéma Infrastructure"
+            <img src="images/infra_sisr2.png" alt="Schéma Infrastructure"
               class="max-h-[500px] w-auto rounded shadow-2xl">
 
             <div
@@ -825,7 +825,7 @@
                   <!-- Compétences acquises -->
                   <div class="border-t border-white/10 pt-4">
                     <h5 class="text-sm font-bold mb-3 text-gray-400">Compétences acquises :</h5>
-                    <div class="flex gap-2 flex-wrap mb-4">
+                    <div class="flex gap-2 flex-wrap">
                       <span class="skill-badge badge-avance">Docker</span>
                       <span class="skill-badge badge-avance">Kubernetes (K3s)</span>
                       <span class="skill-badge badge-confirme">GitLab CI/CD</span>
@@ -833,7 +833,7 @@
                       <span class="skill-badge badge-avance">Cybersécurité</span>
                       <span class="skill-badge badge-confirme">Durcissement Serveur</span>
                     </div>
-                    <a href="pdf/rapport_stage_ja.pdf" target="_blank" class="btn-solid">
+                    <a href="pdf/Rapport_de_Stage_JA.pdf" target="_blank" class="btn-solid mt-4">
                       <i class="fas fa-file-pdf mr-2"></i> Lire le Rapport de Stage
                     </a>
                   </div>
@@ -987,30 +987,75 @@
           </div>
         </div>
 
-        <!-- Section API Cybersécurité -->
-        <div class="glass-card max-w-5xl mx-auto p-8 mt-8" data-aos="fade-up">
-          <div class="flex items-center justify-between mb-6">
-            <h3 class="text-xl font-bold flex items-center gap-3">
-              <i class="fas fa-shield-virus text-red-500"></i>
-              Alertes Cybersécurité & IA
-              <span class="text-xs bg-red-500/20 text-red-400 px-2 py-1 rounded-full animate-pulse">LIVE</span>
+        <!-- Les 3 Piliers de la Veille IA & Cybersécurité -->
+        <div class="max-w-6xl mx-auto mt-12" data-aos="fade-up">
+          <div class="flex items-center justify-between mb-8">
+            <h3 class="text-2xl font-bold flex items-center gap-3">
+              <i class="fas fa-brain text-accent"></i>
+              Les 3 Piliers : IA & Cybersécurité
+              <span class="text-xs bg-accent/20 text-accent px-2 py-1 rounded-full animate-pulse">LIVE</span>
             </h3>
-            <button onclick="refreshSecurityFeed()" class="text-sm text-accent hover:text-white transition-colors">
+            <button onclick="refreshVeille()" class="text-sm text-accent hover:text-white transition-colors">
               <i class="fas fa-sync-alt mr-1"></i> Actualiser
             </button>
           </div>
-          <p class="text-sm text-gray-400 mb-6">Dernières menaces et actualités sur les dangers de l'IA en cybersécurité
-          </p>
 
-          <div id="security-feed" class="grid md:grid-cols-2 gap-4">
-            <!-- Chargement initial -->
-            <div class="bg-white/5 p-4 rounded-lg border border-white/10 animate-pulse">
-              <div class="h-4 bg-gray-700 rounded w-3/4 mb-2"></div>
-              <div class="h-3 bg-gray-700 rounded w-1/2"></div>
+          <div class="grid lg:grid-cols-3 gap-6">
+            <!-- PILIER 1: IA Offensive -->
+            <div class="glass-card p-6 border-red-500/30">
+              <div class="flex items-center gap-3 mb-4 pb-4 border-b border-red-500/20">
+                <div class="w-10 h-10 bg-red-500/20 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-skull-crossbones text-red-400"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-red-400">IA Offensive</h4>
+                  <p class="text-xs text-gray-500">The Dark Side</p>
+                </div>
+              </div>
+              <div id="veille-offensive" class="space-y-3">
+                <div class="bg-white/5 p-3 rounded-lg animate-pulse">
+                  <div class="h-3 bg-gray-700 rounded w-3/4 mb-2"></div>
+                  <div class="h-2 bg-gray-700 rounded w-1/2"></div>
+                </div>
+              </div>
             </div>
-            <div class="bg-white/5 p-4 rounded-lg border border-white/10 animate-pulse">
-              <div class="h-4 bg-gray-700 rounded w-3/4 mb-2"></div>
-              <div class="h-3 bg-gray-700 rounded w-1/2"></div>
+
+            <!-- PILIER 2: IA Défensive -->
+            <div class="glass-card p-6 border-green-500/30">
+              <div class="flex items-center gap-3 mb-4 pb-4 border-b border-green-500/20">
+                <div class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-shield-alt text-green-400"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-green-400">IA Défensive</h4>
+                  <p class="text-xs text-gray-500">The Shield</p>
+                </div>
+              </div>
+              <div id="veille-defensive" class="space-y-3">
+                <div class="bg-white/5 p-3 rounded-lg animate-pulse">
+                  <div class="h-3 bg-gray-700 rounded w-3/4 mb-2"></div>
+                  <div class="h-2 bg-gray-700 rounded w-1/2"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PILIER 3: Adversarial ML -->
+            <div class="glass-card p-6 border-purple-500/30">
+              <div class="flex items-center gap-3 mb-4 pb-4 border-b border-purple-500/20">
+                <div class="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-crosshairs text-purple-400"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-purple-400">IA comme Cible</h4>
+                  <p class="text-xs text-gray-500">Adversarial ML</p>
+                </div>
+              </div>
+              <div id="veille-adversarial" class="space-y-3">
+                <div class="bg-white/5 p-3 rounded-lg animate-pulse">
+                  <div class="h-3 bg-gray-700 rounded w-3/4 mb-2"></div>
+                  <div class="h-2 bg-gray-700 rounded w-1/2"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
